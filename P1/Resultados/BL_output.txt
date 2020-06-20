@@ -1,0 +1,120 @@
+--------------------------------------
+Fichero ./txt/GKD-c_11_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19579
+Tiempo: 0.025404
+--------------------------------------
+Fichero ./txt/GKD-c_12_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19355.6
+Tiempo: 0.036111
+--------------------------------------
+Fichero ./txt/GKD-c_13_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19359.7
+Tiempo: 0.049464
+--------------------------------------
+Fichero ./txt/GKD-c_14_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19458.5
+Tiempo: 0.030948
+--------------------------------------
+Fichero ./txt/GKD-c_15_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19415.9
+Tiempo: 0.028056
+--------------------------------------
+Fichero ./txt/GKD-c_16_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19677.4
+Tiempo: 0.029832
+--------------------------------------
+Fichero ./txt/GKD-c_17_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19326
+Tiempo: 0.031816
+--------------------------------------
+Fichero ./txt/GKD-c_18_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19456.5
+Tiempo: 0.029264
+--------------------------------------
+Fichero ./txt/GKD-c_19_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19477.3
+Tiempo: 0.018933
+--------------------------------------
+Fichero ./txt/GKD-c_20_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19596.2
+Tiempo: 0.033714
+--------------------------------------
+Fichero ./txt/MDG-a_31_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112980
+Tiempo: 1.280761
+--------------------------------------
+Fichero ./txt/MDG-a_32_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112882
+Tiempo: 1.373914
+--------------------------------------
+Fichero ./txt/MDG-a_33_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112094
+Tiempo: 1.415102
+--------------------------------------
+Fichero ./txt/MDG-a_34_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112728
+Tiempo: 1.326159
+--------------------------------------
+Fichero ./txt/MDG-a_35_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112777
+Tiempo: 1.286044
+--------------------------------------
+Fichero ./txt/MDG-a_36_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112832
+Tiempo: 1.404376
+--------------------------------------
+Fichero ./txt/MDG-a_37_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112534
+Tiempo: 1.389376
+--------------------------------------
+Fichero ./txt/MDG-a_38_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112830
+Tiempo: 1.280585
+--------------------------------------
+Fichero ./txt/MDG-a_39_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112789
+Tiempo: 1.276423
+--------------------------------------
+Fichero ./txt/MDG-a_40_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 113149
+Tiempo: 1.283606
+--------------------------------------
+Fichero ./txt/MDG-b_10_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 767725
+Tiempo: 0.126373
+--------------------------------------
+Fichero ./txt/MDG-b_1_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 754287
+Tiempo: 0.156475
+--------------------------------------
+Fichero ./txt/MDG-b_2_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 771778
+Tiempo: 0.12647
+--------------------------------------
+Fichero ./txt/MDG-b_3_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 760587
+Tiempo: 0.11975
+--------------------------------------
+Fichero ./txt/MDG-b_4_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 765833
+Tiempo: 0.129246
+--------------------------------------
+Fichero ./txt/MDG-b_5_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 753444
+Tiempo: 0.118422
+--------------------------------------
+Fichero ./txt/MDG-b_6_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 758023
+Tiempo: 0.12106
+--------------------------------------
+Fichero ./txt/MDG-b_7_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 756698
+Tiempo: 0.129851
+--------------------------------------
+Fichero ./txt/MDG-b_8_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 764679
+Tiempo: 0.129251
+--------------------------------------
+Fichero ./txt/MDG-b_9_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 763851
+Tiempo: 0.126281

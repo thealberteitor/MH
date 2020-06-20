@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Problema de la m\IeC {\'a}xima Diversidad}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Datos y casos considerados}{4}{section.3}% 
+\contentsline {section}{\numberline {4}Metaheur\IeC {\'\i }stica original propuesta}{4}{section.4}% 
+\contentsline {section}{\numberline {5}Esquema de representaci\IeC {\'o}n de soluciones}{5}{section.5}% 
+\contentsline {section}{\numberline {6}Descripci\IeC {\'o}n de la Funci\IeC {\'o}n Objetivo}{5}{section.6}% 
+\contentsline {section}{\numberline {7}Explotaci\IeC {\'o}n Multi-Entorno}{6}{section.7}% 
+\contentsline {section}{\numberline {8}Hibridaci\IeC {\'o}n con B\IeC {\'u}squeda Local}{7}{section.8}% 
+\contentsline {section}{\numberline {9}B\IeC {\'u}squeda Tab\IeC {\'u}}{8}{section.9}% 
+\contentsline {section}{\numberline {10}Resultados Obtenidos}{9}{section.10}% 
+\contentsline {section}{\numberline {11}An\IeC {\'a}lisis de Resultados}{11}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Desviaci\IeC {\'o}n}{13}{subsection.11.1}% 

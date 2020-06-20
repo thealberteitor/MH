@@ -1,0 +1,21 @@
+Directorios incluídos en la práctica 1:
+
+-Instancias: Carpeta que contiene todos los ficheros .txt a ejecutar
+Se ha entregado vacía porque la subida estaba restringida a 50MB y el archivo
+comprimido ocupaba más. Para probar el script automático se necesita volcar todas las 
+instancias a esa carpeta.
+
+-BIN: Contiene los archivos ejecutables de los dos algoritmos.
+
+
+-FUENTES: Contiene los archivos fuentes .cpp, además de las instancias a ejecutar.
+
+
+
+-Resultados: Tablas MDP rellenadas, 2 archivos output.txt correspondientes a la ejecución
+de execute.sh (para greedy y BL) y un archivo adicional con una tabla con los resultados
+globales así como gráficas usadas en la memoria.
+
+
+
+-execute.sh: script para automatizar la ejecución de todas las instancias.

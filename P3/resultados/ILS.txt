@@ -1,0 +1,151 @@
+Ejecutanto: ILS
+--------------------------------------
+Fichero instancias/GKD-c_11_n500_m50.txt abierto correctamente.
+19587.1
+
+Tiempo: 0.027752
+--------------------------------------
+Fichero instancias/GKD-c_12_n500_m50.txt abierto correctamente.
+19360.2
+
+Tiempo: 0.040353
+--------------------------------------
+Fichero instancias/GKD-c_13_n500_m50.txt abierto correctamente.
+19366.7
+
+Tiempo: 0.046516
+--------------------------------------
+Fichero instancias/GKD-c_14_n500_m50.txt abierto correctamente.
+19458.6
+
+Tiempo: 0.03273
+--------------------------------------
+Fichero instancias/GKD-c_15_n500_m50.txt abierto correctamente.
+19421.6
+
+Tiempo: 0.026632
+--------------------------------------
+Fichero instancias/GKD-c_16_n500_m50.txt abierto correctamente.
+19680.2
+
+Tiempo: 0.03028
+--------------------------------------
+Fichero instancias/GKD-c_17_n500_m50.txt abierto correctamente.
+19331.4
+
+Tiempo: 0.035873
+--------------------------------------
+Fichero instancias/GKD-c_18_n500_m50.txt abierto correctamente.
+19461.4
+
+Tiempo: 0.035202
+--------------------------------------
+Fichero instancias/GKD-c_19_n500_m50.txt abierto correctamente.
+19477.3
+
+Tiempo: 0.028125
+--------------------------------------
+Fichero instancias/GKD-c_20_n500_m50.txt abierto correctamente.
+19604.8
+
+Tiempo: 0.040658
+--------------------------------------
+Fichero instancias/MDG-a_31_n2000_m200.txt abierto correctamente.
+113825
+
+Tiempo: 0.413094
+--------------------------------------
+Fichero instancias/MDG-a_32_n2000_m200.txt abierto correctamente.
+113268
+
+Tiempo: 0.462535
+--------------------------------------
+Fichero instancias/MDG-a_33_n2000_m200.txt abierto correctamente.
+113223
+
+Tiempo: 0.434288
+--------------------------------------
+Fichero instancias/MDG-a_34_n2000_m200.txt abierto correctamente.
+113306
+
+Tiempo: 0.378659
+--------------------------------------
+Fichero instancias/MDG-a_35_n2000_m200.txt abierto correctamente.
+113838
+
+Tiempo: 0.373986
+--------------------------------------
+Fichero instancias/MDG-a_36_n2000_m200.txt abierto correctamente.
+113220
+
+Tiempo: 0.393355
+--------------------------------------
+Fichero instancias/MDG-a_37_n2000_m200.txt abierto correctamente.
+113447
+
+Tiempo: 0.384809
+--------------------------------------
+Fichero instancias/MDG-a_38_n2000_m200.txt abierto correctamente.
+113427
+
+Tiempo: 0.37008
+--------------------------------------
+Fichero instancias/MDG-a_39_n2000_m200.txt abierto correctamente.
+113589
+
+Tiempo: 0.37623
+--------------------------------------
+Fichero instancias/MDG-a_40_n2000_m200.txt abierto correctamente.
+113398
+
+Tiempo: 0.390714
+--------------------------------------
+Fichero instancias/MDG-b_10_n500_m50.txt abierto correctamente.
+766173
+
+Tiempo: 0.045123
+--------------------------------------
+Fichero instancias/MDG-b_1_n500_m50.txt abierto correctamente.
+768893
+
+Tiempo: 0.0377
+--------------------------------------
+Fichero instancias/MDG-b_2_n500_m50.txt abierto correctamente.
+776145
+
+Tiempo: 0.040854
+--------------------------------------
+Fichero instancias/MDG-b_3_n500_m50.txt abierto correctamente.
+769205
+
+Tiempo: 0.046076
+--------------------------------------
+Fichero instancias/MDG-b_4_n500_m50.txt abierto correctamente.
+769641
+
+Tiempo: 0.042426
+--------------------------------------
+Fichero instancias/MDG-b_5_n500_m50.txt abierto correctamente.
+769000
+
+Tiempo: 0.030841
+--------------------------------------
+Fichero instancias/MDG-b_6_n500_m50.txt abierto correctamente.
+759684
+
+Tiempo: 0.04347
+--------------------------------------
+Fichero instancias/MDG-b_7_n500_m50.txt abierto correctamente.
+765951
+
+Tiempo: 0.055294
+--------------------------------------
+Fichero instancias/MDG-b_8_n500_m50.txt abierto correctamente.
+775018
+
+Tiempo: 0.036708
+--------------------------------------
+Fichero instancias/MDG-b_9_n500_m50.txt abierto correctamente.
+770633
+
+Tiempo: 0.052646

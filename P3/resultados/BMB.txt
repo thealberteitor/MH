@@ -1,0 +1,121 @@
+Ejecutanto: BMB
+--------------------------------------
+Fichero instancias/GKD-c_11_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19586
+Tiempo: 0.031516
+--------------------------------------
+Fichero instancias/GKD-c_12_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19360.2
+Tiempo: 0.045906
+--------------------------------------
+Fichero instancias/GKD-c_13_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19366.7
+Tiempo: 0.043484
+--------------------------------------
+Fichero instancias/GKD-c_14_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19458.6
+Tiempo: 0.036466
+--------------------------------------
+Fichero instancias/GKD-c_15_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19421.6
+Tiempo: 0.029404
+--------------------------------------
+Fichero instancias/GKD-c_16_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19680.2
+Tiempo: 0.037487
+--------------------------------------
+Fichero instancias/GKD-c_17_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19331.4
+Tiempo: 0.034392
+--------------------------------------
+Fichero instancias/GKD-c_18_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19461.4
+Tiempo: 0.032465
+--------------------------------------
+Fichero instancias/GKD-c_19_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19477.3
+Tiempo: 0.037098
+--------------------------------------
+Fichero instancias/GKD-c_20_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 19604.8
+Tiempo: 0.042007
+--------------------------------------
+Fichero instancias/MDG-a_31_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 113028
+Tiempo: 0.670244
+--------------------------------------
+Fichero instancias/MDG-a_32_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112651
+Tiempo: 0.647579
+--------------------------------------
+Fichero instancias/MDG-a_33_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112944
+Tiempo: 0.647485
+--------------------------------------
+Fichero instancias/MDG-a_34_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112835
+Tiempo: 0.63305
+--------------------------------------
+Fichero instancias/MDG-a_35_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112944
+Tiempo: 0.640786
+--------------------------------------
+Fichero instancias/MDG-a_36_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112987
+Tiempo: 0.640711
+--------------------------------------
+Fichero instancias/MDG-a_37_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112874
+Tiempo: 0.654116
+--------------------------------------
+Fichero instancias/MDG-a_38_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112991
+Tiempo: 0.647236
+--------------------------------------
+Fichero instancias/MDG-a_39_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112908
+Tiempo: 0.643598
+--------------------------------------
+Fichero instancias/MDG-a_40_n2000_m200.txt abierto correctamente.
+COSTE SOLUCIÓN: 112834
+Tiempo: 0.64953
+--------------------------------------
+Fichero instancias/MDG-b_10_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 771090
+Tiempo: 0.040729
+--------------------------------------
+Fichero instancias/MDG-b_1_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 768472
+Tiempo: 0.038246
+--------------------------------------
+Fichero instancias/MDG-b_2_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 771856
+Tiempo: 0.038347
+--------------------------------------
+Fichero instancias/MDG-b_3_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 767181
+Tiempo: 0.04121
+--------------------------------------
+Fichero instancias/MDG-b_4_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 765863
+Tiempo: 0.035926
+--------------------------------------
+Fichero instancias/MDG-b_5_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 770415
+Tiempo: 0.040207
+--------------------------------------
+Fichero instancias/MDG-b_6_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 765810
+Tiempo: 0.037843
+--------------------------------------
+Fichero instancias/MDG-b_7_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 766665
+Tiempo: 0.038678
+--------------------------------------
+Fichero instancias/MDG-b_8_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 773351
+Tiempo: 0.038743
+--------------------------------------
+Fichero instancias/MDG-b_9_n500_m50.txt abierto correctamente.
+COSTE SOLUCIÓN: 766528
+Tiempo: 0.034034

@@ -1,0 +1,151 @@
+Ejecutanto: AGGposicional
+--------------------------------------
+Fichero instancias/GKD-c_11_n500_m50.txt abierto correctamente.
+MEJOR: 19586.2
+
+Tiempo: 16.9097
+--------------------------------------
+Fichero instancias/GKD-c_12_n500_m50.txt abierto correctamente.
+MEJOR: 19359.2
+
+Tiempo: 16.046
+--------------------------------------
+Fichero instancias/GKD-c_13_n500_m50.txt abierto correctamente.
+MEJOR: 19361
+
+Tiempo: 15.9106
+--------------------------------------
+Fichero instancias/GKD-c_14_n500_m50.txt abierto correctamente.
+MEJOR: 19458.6
+
+Tiempo: 16.3018
+--------------------------------------
+Fichero instancias/GKD-c_15_n500_m50.txt abierto correctamente.
+MEJOR: 19422.1
+
+Tiempo: 16.0013
+--------------------------------------
+Fichero instancias/GKD-c_16_n500_m50.txt abierto correctamente.
+MEJOR: 19679.5
+
+Tiempo: 16.2746
+--------------------------------------
+Fichero instancias/GKD-c_17_n500_m50.txt abierto correctamente.
+MEJOR: 19331.4
+
+Tiempo: 16.0626
+--------------------------------------
+Fichero instancias/GKD-c_18_n500_m50.txt abierto correctamente.
+MEJOR: 19460
+
+Tiempo: 16.1838
+--------------------------------------
+Fichero instancias/GKD-c_19_n500_m50.txt abierto correctamente.
+MEJOR: 19477.3
+
+Tiempo: 16.0105
+--------------------------------------
+Fichero instancias/GKD-c_20_n500_m50.txt abierto correctamente.
+MEJOR: 19604.8
+
+Tiempo: 15.6487
+--------------------------------------
+Fichero instancias/MDG-b_10_n500_m50.txt abierto correctamente.
+MEJOR: 763852
+
+Tiempo: 15.7066
+--------------------------------------
+Fichero instancias/MDG-b_1_n500_m50.txt abierto correctamente.
+MEJOR: 755790
+
+Tiempo: 15.8637
+--------------------------------------
+Fichero instancias/MDG-b_2_n500_m50.txt abierto correctamente.
+MEJOR: 762735
+
+Tiempo: 16.1481
+--------------------------------------
+Fichero instancias/MDG-b_3_n500_m50.txt abierto correctamente.
+MEJOR: 759655
+
+Tiempo: 16.0725
+--------------------------------------
+Fichero instancias/MDG-b_4_n500_m50.txt abierto correctamente.
+MEJOR: 752398
+
+Tiempo: 16.686
+--------------------------------------
+Fichero instancias/MDG-b_5_n500_m50.txt abierto correctamente.
+MEJOR: 759879
+
+Tiempo: 19.1098
+--------------------------------------
+Fichero instancias/MDG-b_6_n500_m50.txt abierto correctamente.
+MEJOR: 758308
+
+Tiempo: 17.8714
+--------------------------------------
+Fichero instancias/MDG-b_7_n500_m50.txt abierto correctamente.
+MEJOR: 759429
+
+Tiempo: 16.9178
+--------------------------------------
+Fichero instancias/MDG-b_8_n500_m50.txt abierto correctamente.
+MEJOR: 759832
+
+Tiempo: 17.3821
+--------------------------------------
+Fichero instancias/MDG-b_9_n500_m50.txt abierto correctamente.
+MEJOR: 760125
+
+Tiempo: 17.1385
+--------------------------------------
+Fichero instancias/MDG-a_31_n2000_m200.txt abierto correctamente.
+MEJOR: 108682
+
+Tiempo: 523.881
+--------------------------------------
+Fichero instancias/MDG-a_32_n2000_m200.txt abierto correctamente.
+MEJOR: 108946
+
+Tiempo: 580.846
+--------------------------------------
+Fichero ../instancias/MDG-a_33_n2000_m200.txt abierto correctamente.
+MEJOR: 108659
+
+Tiempo: 557.012
+--------------------------------------
+Fichero ../instancias/MDG-a_34_n2000_m200.txt abierto correctamente.
+MEJOR: 108478
+
+Tiempo: 601.111
+--------------------------------------
+Fichero ../instancias/MDG-a_35_n2000_m200.txt abierto correctamente.
+MEJOR: 108858
+
+Tiempo: 605.419
+--------------------------------------
+Fichero ../instancias/MDG-a_36_n2000_m200.txt abierto correctamente.
+MEJOR: 108797
+
+Tiempo: 608.986
+--------------------------------------
+Fichero ../instancias/MDG-a_37_n2000_m200.txt abierto correctamente.
+MEJOR: 108626
+
+Tiempo: 565.997
+--------------------------------------
+Fichero ../instancias/MDG-a_38_n2000_m200.txt abierto correctamente.
+MEJOR: 109186
+
+Tiempo: 557.962
+--------------------------------------
+Fichero ../instancias/MDG-a_39_n2000_m200.txt abierto correctamente.
+MEJOR: 108556
+
+Tiempo: 591.343
+--------------------------------------
+Fichero ../instancias/MDG-a_40_n2000_m200.txt abierto correctamente.
+MEJOR: 108866
+
+Tiempo: 631.103

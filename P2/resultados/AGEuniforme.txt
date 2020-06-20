@@ -1,0 +1,121 @@
+Ejecutanto: AGEuniforme
+--------------------------------------
+Fichero instancias/GKD-c_11_n500_m50.txt abierto correctamente.
+MEJOR: 19582.9
+Tiempo: 29.5517
+--------------------------------------
+Fichero instancias/GKD-c_12_n500_m50.txt abierto correctamente.
+MEJOR: 19353.7
+Tiempo: 28.6349
+--------------------------------------
+Fichero instancias/GKD-c_13_n500_m50.txt abierto correctamente.
+MEJOR: 19357.1
+Tiempo: 29.5296
+--------------------------------------
+Fichero instancias/GKD-c_14_n500_m50.txt abierto correctamente.
+MEJOR: 19453.7
+Tiempo: 29.4641
+--------------------------------------
+Fichero instancias/GKD-c_15_n500_m50.txt abierto correctamente.
+MEJOR: 19418.7
+Tiempo: 27.9603
+--------------------------------------
+Fichero instancias/GKD-c_16_n500_m50.txt abierto correctamente.
+MEJOR: 19678.3
+Tiempo: 29.2146
+--------------------------------------
+Fichero instancias/GKD-c_17_n500_m50.txt abierto correctamente.
+MEJOR: 19325.5
+Tiempo: 27.0552
+--------------------------------------
+Fichero instancias/GKD-c_18_n500_m50.txt abierto correctamente.
+MEJOR: 19453.9
+Tiempo: 27.9842
+--------------------------------------
+Fichero instancias/GKD-c_19_n500_m50.txt abierto correctamente.
+MEJOR: 19477.3
+Tiempo: 28.641
+--------------------------------------
+Fichero instancias/GKD-c_20_n500_m50.txt abierto correctamente.
+MEJOR: 19599.9
+Tiempo: 27.611
+--------------------------------------
+Fichero instancias/MDG-b_10_n500_m50.txt abierto correctamente.
+MEJOR: 765325
+Tiempo: 28.583
+--------------------------------------
+Fichero instancias/MDG-b_1_n500_m50.txt abierto correctamente.
+MEJOR: 760952
+Tiempo: 28.0894
+--------------------------------------
+Fichero instancias/MDG-b_2_n500_m50.txt abierto correctamente.
+MEJOR: 763328
+Tiempo: 28.0401
+--------------------------------------
+Fichero instancias/MDG-b_3_n500_m50.txt abierto correctamente.
+MEJOR: 757693
+Tiempo: 27.8055
+--------------------------------------
+Fichero instancias/MDG-b_4_n500_m50.txt abierto correctamente.
+MEJOR: 767379
+Tiempo: 26.7146
+--------------------------------------
+Fichero instancias/MDG-b_5_n500_m50.txt abierto correctamente.
+MEJOR: 760322
+Tiempo: 27.024
+--------------------------------------
+Fichero instancias/MDG-b_6_n500_m50.txt abierto correctamente.
+MEJOR: 754484
+Tiempo: 28.194
+--------------------------------------
+Fichero instancias/MDG-b_7_n500_m50.txt abierto correctamente.
+MEJOR: 763788
+Tiempo: 27.127
+--------------------------------------
+Fichero instancias/MDG-b_8_n500_m50.txt abierto correctamente.
+MEJOR: 764510
+Tiempo: 26.3952
+--------------------------------------
+Fichero instancias/MDG-b_9_n500_m50.txt abierto correctamente.
+MEJOR: 758980
+Tiempo: 29.2221
+--------------------------------------
+Fichero instancias/MDG-a_31_n2000_m200.txt abierto correctamente.
+MEJOR: 111424
+Tiempo: 890.509
+--------------------------------------
+Fichero instancias/MDG-a_32_n2000_m200.txt abierto correctamente.
+MEJOR: 111276
+Tiempo: 1106.02
+--------------------------------------
+Fichero instancias/MDG-a_33_n2000_m200.txt abierto correctamente.
+MEJOR: 111251
+Tiempo: 912,131
+--------------------------------------
+Fichero instancias/MDG-a_34_n2000_m200.txt abierto correctamente.
+MEJOR: 112094
+Tiempo: 875,892
+--------------------------------------
+Fichero instancias/MDG-a_35_n2000_m200.txt abierto correctamente.
+MEJOR: 111615
+Tiempo: 856,71
+--------------------------------------
+Fichero instancias/MDG-a_36_n2000_m200.txt abierto correctamente.
+MEJOR: 111544
+Tiempo: 911,054
+--------------------------------------
+Fichero instancias/MDG-a_37_n2000_m200.txt abierto correctamente.
+MEJOR: 111312
+Tiempo: 792.132
+--------------------------------------
+Fichero instancias/MDG-a_38_n2000_m200.txt abierto correctamente.
+MEJOR: 111932
+Tiempo: 854.812
+--------------------------------------
+Fichero instancias/MDG-a_39_n2000_m200.txt abierto correctamente.
+MEJOR: 111873
+Tiempo: 867.902
+--------------------------------------
+Fichero instancias/MDG-a_40_n2000_m200.txt abierto correctamente.
+MEJOR: 111549
+Tiempo: 832.351

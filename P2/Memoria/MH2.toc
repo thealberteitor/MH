@@ -1,0 +1,27 @@
+\babel@toc {spanish}{}
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Problema de la m\IeC {\'a}xima Diversidad}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Datos y casos considerados}{4}{section.3}% 
+\contentsline {section}{\numberline {4}Algoritmos Gen\IeC {\'e}ticos}{4}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Representaci\IeC {\'o}n de las Poblaciones}{4}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Generaci\IeC {\'o}n de Soluciones Iniciales}{5}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Descripci\IeC {\'o}n de la Funci\IeC {\'o}n Objetivo}{5}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Esquema de Evoluci\IeC {\'o}n y de Reemplazamiento}{6}{subsection.4.4}% 
+\contentsline {subsubsection}{\numberline {4.4.1}Operador de Selecci\IeC {\'o}n AGG}{7}{subsubsection.4.4.1}% 
+\contentsline {subsection}{\numberline {4.5}Operador de Selecci\IeC {\'o}n AGE}{7}{subsection.4.5}% 
+\contentsline {subsection}{\numberline {4.6}Operador de Cruce Posicional}{8}{subsection.4.6}% 
+\contentsline {subsection}{\numberline {4.7}Operador de cruce Uniforme}{9}{subsection.4.7}% 
+\contentsline {subsection}{\numberline {4.8}Operador de Mutaci\IeC {\'o}n}{10}{subsection.4.8}% 
+\contentsline {section}{\numberline {5}Algoritmos Mem\IeC {\'e}ticos}{11}{section.5}% 
+\contentsline {section}{\numberline {6}Resultados}{13}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Algoritmos Gen\IeC {\'e}ticos Generacionales}{13}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Algoritmos Gen\IeC {\'e}ticos Estacionarios}{14}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Algoritmos Mem\IeC {\'e}ticos}{15}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}Resultados Globales}{15}{subsection.6.4}% 
+\contentsline {section}{\numberline {7}Comparaci\IeC {\'o}n y An\IeC {\'a}lisis de costes obtenidos}{16}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Algoritmos Gen\IeC {\'e}ticos}{16}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Algor\IeC {\'\i }tmos Mem\IeC {\'e}ticos}{18}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Desviaci\IeC {\'o}n y tiempo}{20}{subsection.7.3}% 
+\contentsline {section}{\numberline {8}Ejercicio extra}{21}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Resultados}{23}{subsection.8.1}% 

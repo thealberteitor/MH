@@ -1,0 +1,16 @@
+\babel@toc {spanish}{}
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Problema de la m\IeC {\'a}xima Diversidad}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Datos y casos considerados}{4}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Esquema de representaci\IeC {\'o}n de soluciones}{4}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Descripci\IeC {\'o}n de la Funci\IeC {\'o}n Objetivo}{4}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}Enfriamiento Simulado}{5}{section.4}% 
+\contentsline {section}{\numberline {5}B\IeC {\'u}squeda Local}{7}{section.5}% 
+\contentsline {section}{\numberline {6}B\IeC {\'u}squeda Multiarranque B\IeC {\'a}sica}{8}{section.6}% 
+\contentsline {section}{\numberline {7}B\IeC {\'u}squeda Local Reiterada (ILS)}{9}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Generaci\IeC {\'o}n de Soluciones Iniciales}{9}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Esquema de B\IeC {\'u}squeda ILS, ILS-ES}{9}{subsection.7.2}% 
+\contentsline {section}{\numberline {8}Resultados Obtenidos}{11}{section.8}% 
+\contentsline {section}{\numberline {9}An\IeC {\'a}lisis de Resultados}{13}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Desviaci\IeC {\'o}n}{15}{subsection.9.1}% 

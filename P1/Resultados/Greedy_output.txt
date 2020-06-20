@@ -1,0 +1,120 @@
+--------------------------------------
+Fichero GKD-c_11_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19583.9
+Tiempo: 0.010865
+--------------------------------------
+Fichero GKD-c_12_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19349.2
+Tiempo: 0.013514
+--------------------------------------
+Fichero GKD-c_13_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19348.8
+Tiempo: 0.011363
+--------------------------------------
+Fichero GKD-c_14_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19458.4
+Tiempo: 0.011682
+--------------------------------------
+Fichero GKD-c_15_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19420.3
+Tiempo: 0.012734
+--------------------------------------
+Fichero GKD-c_16_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19677.3
+Tiempo: 0.010998
+--------------------------------------
+Fichero GKD-c_17_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19331.4
+Tiempo: 0.010834
+--------------------------------------
+Fichero GKD-c_18_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19461.4
+Tiempo: 0.011012
+--------------------------------------
+Fichero GKD-c_19_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19472.8
+Tiempo: 0.010888
+--------------------------------------
+Fichero GKD-c_20_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 19604.8
+Tiempo: 0.011376
+--------------------------------------
+Fichero MDG-a_31_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112505
+Tiempo: 1.22407
+--------------------------------------
+Fichero MDG-a_32_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112425
+Tiempo: 1.19217
+--------------------------------------
+Fichero MDG-a_33_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112375
+Tiempo: 1.1802
+--------------------------------------
+Fichero MDG-a_34_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112262
+Tiempo: 1.32827
+--------------------------------------
+Fichero MDG-a_35_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112558
+Tiempo: 1.51792
+--------------------------------------
+Fichero MDG-a_36_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112355
+Tiempo: 1.46662
+--------------------------------------
+Fichero MDG-a_37_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112453
+Tiempo: 1.5526
+--------------------------------------
+Fichero MDG-a_38_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112495
+Tiempo: 1.43353
+--------------------------------------
+Fichero MDG-a_39_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112283
+Tiempo: 1.34958
+--------------------------------------
+Fichero MDG-a_40_n2000_m200.txt abierto correctamente.
+Greedy - coste estimado: 112709
+Tiempo: 1.42476
+--------------------------------------
+Fichero MDG-b_10_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 753517
+Tiempo: 0.01375
+--------------------------------------
+Fichero MDG-b_1_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 754035
+Tiempo: 0.01362
+--------------------------------------
+Fichero MDG-b_2_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 759843
+Tiempo: 0.013811
+--------------------------------------
+Fichero MDG-b_3_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 757355
+Tiempo: 0.013285
+--------------------------------------
+Fichero MDG-b_4_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 763216
+Tiempo: 0.012358
+--------------------------------------
+Fichero MDG-b_5_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 753857
+Tiempo: 0.011967
+--------------------------------------
+Fichero MDG-b_6_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 756626
+Tiempo: 0.012289
+--------------------------------------
+Fichero MDG-b_7_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 757362
+Tiempo: 0.012501
+--------------------------------------
+Fichero MDG-b_8_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 759994
+Tiempo: 0.012994
+--------------------------------------
+Fichero MDG-b_9_n500_m50.txt abierto correctamente.
+Greedy - coste estimado: 754166
+Tiempo: 0.012611
