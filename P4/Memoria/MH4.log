@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.2.25)  20 JUN 2020 10:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.2.25)  27 JUN 2020 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,25 +655,28 @@ LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
+
+
+LaTeX Warning: Label `glob' multiply defined.
+
 )
 \openout1 = `MH4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count154
 \scratchdimen=\dimen168
@@ -687,14 +690,14 @@ LaTeX Font Info:    ... okay on input line 41.
 \makeMPintoPDFobject=\count159
 \everyMPtoPDFconversion=\toks38
 )
-LaTeX Info: Redefining \. on input line 41.
-LaTeX Info: Redefining \% on input line 41.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 41.
+Package hyperref Info: Link coloring OFF on input line 42.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -703,9 +706,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count160
 )
-LaTeX Info: Redefining \ref on input line 41.
-LaTeX Info: Redefining \pageref on input line 41.
-LaTeX Info: Redefining \nameref on input line 41.
+LaTeX Info: Redefining \ref on input line 42.
+LaTeX Info: Redefining \pageref on input line 42.
+LaTeX Info: Redefining \nameref on input line 42.
 
 (./MH4.out) (./MH4.out)
 \@outlinefile=\write3
@@ -717,7 +720,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           You can avoid loading `bookmark' with KOMA-Script option
 (scrartcl)           `bookmarkpackage=false' before \begin{document} and
 (scrartcl)           you can avoid this message with `\usepackage{bookmark}'
-(scrartcl)           before \begin{document} on input line 41.
+(scrartcl)           before \begin{document} on input line 42.
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -764,17 +767,17 @@ e 164.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 44.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 45.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -798,77 +801,177 @@ Package tocbasic Info: Using my definition of `\numberline' on input line 11.
 Package tocbasic Info: Using my definition of `\numberline' on input line 12.
 Package tocbasic Info: Using my definition of `\numberline' on input line 13.
 Package tocbasic Info: Using my definition of `\numberline' on input line 14.
+Package tocbasic Info: Using my definition of `\numberline' on input line 15.
+Package tocbasic Info: Using my definition of `\numberline' on input line 16.
+Package tocbasic Info: Using my definition of `\numberline' on input line 17.
+Package tocbasic Info: Using my definition of `\numberline' on input line 18.
 )
 \tf@toc=\write4
 \openout4 = `MH4.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 60--62
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
-<img/mdp.png, id=45, 446.66875pt x 445.665pt>
+<img/mdp.png, id=53, 446.66875pt x 445.665pt>
 File: img/mdp.png Graphic file (type png)
 <use img/mdp.png>
-Package pdftex.def Info: img/mdp.png  used on input line 93.
+Package pdftex.def Info: img/mdp.png  used on input line 94.
 (pdftex.def)             Requested size: 156.3364pt x 155.98508pt.
 [3 <./img/mdp.png>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 100.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 101.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (9.1395pt too wide) in paragraph at lines 100--101
+Overfull \hbox (9.1395pt too wide) in paragraph at lines 101--102
 []  \T1/cmr/m/n/10.95 Las eje-cu-cio-nes se han rea-li-za-do en un or-de-na-dor
  \T1/cmtt/m/n/10.95 Intel(R) Core(TM) i7-1065G7
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--107
+Underfull \hbox (badness 10000) in paragraph at lines 104--108
 
  []
 
-[4] [5] [6] [7] [8] [9] [10]
-<img/gkdc.png, id=113, 607.26875pt x 341.275pt>
-File: img/gkdc.png Graphic file (type png)
-<use img/gkdc.png>
-Package pdftex.def Info: img/gkdc.png  used on input line 604.
-(pdftex.def)             Requested size: 376.50273pt x 211.5883pt.
- [11 <./img/gkdc.png>]
-<img/mdga.png, id=120, 607.26875pt x 341.275pt>
-File: img/mdga.png Graphic file (type png)
-<use img/mdga.png>
-Package pdftex.def Info: img/mdga.png  used on input line 619.
-(pdftex.def)             Requested size: 376.50273pt x 211.5883pt.
-<img/mdgb.png, id=121, 607.26875pt x 341.275pt>
-File: img/mdgb.png Graphic file (type png)
-<use img/mdgb.png>
-Package pdftex.def Info: img/mdgb.png  used on input line 633.
-(pdftex.def)             Requested size: 376.50273pt x 211.5883pt.
- [12 <./img/mdga.png> <./img/mdgb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
-<img/desv.png, id=130, 607.26875pt x 341.275pt>
-File: img/desv.png Graphic file (type png)
-<use img/desv.png>
-Package pdftex.def Info: img/desv.png  used on input line 662.
-(pdftex.def)             Requested size: 364.36406pt x 204.76657pt.
-[13 <./img/desv.png>]
+<img/toro.png, id=82, 742.775pt x 227.85126pt>
+File: img/toro.png Graphic file (type png)
+<use img/toro.png>
+Package pdftex.def Info: img/toro.png  used on input line 202.
+(pdftex.def)             Requested size: 259.97514pt x 79.74913pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+ []
+
+<img/idb.png, id=85, 220.825pt x 220.825pt>
+File: img/idb.png Graphic file (type png)
+<use img/idb.png>
+Package pdftex.def Info: img/idb.png  used on input line 219.
+(pdftex.def)             Requested size: 66.248pt x 66.248pt.
+<img/flecha.png, id=86, 56.21pt x 225.84375pt>
+File: img/flecha.png Graphic file (type png)
+<use img/flecha.png>
+Package pdftex.def Info: img/flecha.png  used on input line 221.
+(pdftex.def)             Requested size: 14.05246pt x 56.46078pt.
+<img/banda.png, id=87, 386.6445pt x 224.7597pt>
+File: img/banda.png Graphic file (type png)
+<use img/banda.png>
+Package pdftex.def Info: img/banda.png  used on input line 223.
+(pdftex.def)             Requested size: 115.99423pt x 67.42842pt.
+<img/a.png, id=89, 853.1875pt x 460.72125pt>
+File: img/a.png Graphic file (type png)
+<use img/a.png>
+Package pdftex.def Info: img/a.png  used on input line 231.
+(pdftex.def)             Requested size: 298.6201pt x 161.25485pt.
+[5 <./img/toro.png> <./img/idb.png> <./img/flecha.png> <./img/banda.png>]
+<img/klein.png, id=101, 708.6475pt x 462.72874pt>
+File: img/klein.png Graphic file (type png)
+<use img/klein.png>
+Package pdftex.def Info: img/klein.png  used on input line 239.
+(pdftex.def)             Requested size: 283.45398pt x 185.08821pt.
+<img/topo6.png, id=103, 1104.125pt x 467.7475pt>
+File: img/topo6.png Graphic file (type png)
+<use img/topo6.png>
+Package pdftex.def Info: img/topo6.png  used on input line 264.
+(pdftex.def)             Requested size: 419.57187pt x 177.74588pt.
+
+Overfull \hbox (2.73866pt too wide) in paragraph at lines 264--265
+ [][] 
+ []
+
+[6 <./img/a.png> <./img/klein.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
+
+ []
+
+[7 <./img/topo6.png>]
+Overfull \hbox (4.44193pt too wide) in paragraph at lines 298--299
+[]\T1/cmtt/m/n/10.95 Modelo Distribuido. Modelo isla para añadir un operador de
+ viaje\T1/cmr/m/n/10.95 : Te-ne-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
+
+ []
+
+<img/perf.png, id=120, 1002.74625pt x 985.6825pt>
+File: img/perf.png Graphic file (type png)
+<use img/perf.png>
+Package pdftex.def Info: img/perf.png  used on input line 302.
+(pdftex.def)             Requested size: 300.82619pt x 295.70703pt.
+[8 <./img/perf.png>]
+<img/lol.png, id=130, 1069.9975pt x 446.66875pt>
+File: img/lol.png Graphic file (type png)
+<use img/lol.png>
+Package pdftex.def Info: img/lol.png  used on input line 332.
+(pdftex.def)             Requested size: 374.50473pt x 156.3364pt.
+ [9 <./img/lol.png>] [10] [11]
+<img/def.png, id=153, 1100.11pt x 583.17876pt>
+File: img/def.png Graphic file (type png)
+<use img/def.png>
+Package pdftex.def Info: img/def.png  used on input line 530.
+(pdftex.def)             Requested size: 385.04427pt x 204.11562pt.
+ [12 <./img/def.png>]
+[13] [14]
+<img/aa.png, id=179, 607.26875pt x 341.275pt>
+File: img/aa.png Graphic file (type png)
+<use img/aa.png>
+Package pdftex.def Info: img/aa.png  used on input line 720.
+(pdftex.def)             Requested size: 333.99884pt x 187.70181pt.
+<img/c.png, id=180, 607.26875pt x 341.275pt>
+File: img/c.png Graphic file (type png)
+<use img/c.png>
+Package pdftex.def Info: img/c.png  used on input line 726.
+(pdftex.def)             Requested size: 333.99884pt x 187.70181pt.
+ [15 <./img/aa.png> <./img/c.png>]
+<img/b.png, id=189, 607.26875pt x 341.275pt>
+File: img/b.png Graphic file (type png)
+<use img/b.png>
+Package pdftex.def Info: img/b.png  used on input line 738.
+(pdftex.def)             Requested size: 333.99884pt x 187.70181pt.
+ [16 <./img/b.png>] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 850--851
+
+ []
+
+<img/final.png, id=200, 1238.6275pt x 523.9575pt>
+File: img/final.png Graphic file (type png)
+<use img/final.png>
+Package pdftex.def Info: img/final.png  used on input line 856.
+(pdftex.def)             Requested size: 408.74834pt x 172.90651pt.
+[18 <./img/final.png>]
+<img/2t.png, id=207, 604.2575pt x 321.2pt>
+File: img/2t.png Graphic file (type png)
+<use img/2t.png>
+Package pdftex.def Info: img/2t.png  used on input line 879.
+(pdftex.def)             Requested size: 211.49329pt x 112.42168pt.
+<img/yesh.png, id=208, 490.83376pt x 289.08pt>
+File: img/yesh.png Graphic file (type png)
+<use img/yesh.png>
+Package pdftex.def Info: img/yesh.png  used on input line 890.
+(pdftex.def)             Requested size: 220.87314pt x 130.0848pt.
+ [19 <./img/2t.png> <./img/yesh.png>]
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
-               before end of `thebibliography' environment on input line 696.
+               before end of `thebibliography' environment on input line 926.
 
 
 Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -876,34 +979,38 @@ Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 (movie15)                @@ superseded by `media9'.           @@
 (movie15)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 699.
-[14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 699.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 929.
+[20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 929.
  (./MH4.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 699.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 699.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 929.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 929.
 Package rerunfilecheck Info: File `MH4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 699.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 929.
  ) 
 Here is how much of TeX's memory you used:
- 14378 strings out of 493841
- 227346 string characters out of 6157746
- 574671 words of memory out of 5000000
- 17830 multiletter control sequences out of 15000+600000
+ 14473 strings out of 493841
+ 228618 string characters out of 6157746
+ 549673 words of memory out of 5000000
+ 17886 multiletter control sequences out of 15000+600000
  23432 words of font info for 61 fonts, out of 8000000 for 9000
  421 hyphenation exceptions out of 8191
  52i,27n,54p,9110b,808s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/albduranlopez/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx
-1200.600pk> </home/albduranlopez/.texlive2019/texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecrm0800.600pk> </home/albduranlopez/.texlive2019/texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecit1095.600pk> </home/albduranlopez/.texlive2019/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/albduranlopez/.texlive2019/texmf-
+ </home/albduranlopez/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
+0800.600pk> </home/albduranlopez/.texlive2019/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecit1095.600pk> </home/albduranlopez/.texlive2019/texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ectt1095.600pk> </home/albduranlopez/.texlive2019/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/albduranlopez/.texlive2019/texmf-
 var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/albduranlopez/.texlive20
 19/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/albduranlopez/.
 texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1095.600pk> </home/albdur
@@ -921,10 +1028,10 @@ msfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on MH4.pdf (14 pages, 391101 bytes).
+Output written on MH4.pdf (20 pages, 1210174 bytes).
 PDF statistics:
- 726 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 871 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 214 words of extra memory for PDF output out of 10000 (max. 10000000)
 

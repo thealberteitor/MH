@@ -1,0 +1,271 @@
+Ejecutanto: MundoSuperficie
+--------------------------------------
+Fichero instancias/GKD-c_11_n500_m50.txt abierto correctamente.
+Botella de Klein: 19582.6
+Cinta de Mobius: 19583
+Plano Proyectivo: 19583.5
+Toro Llano: 19585.7
+Máximo: 19585.7
+
+Tiempo: 9.75131
+--------------------------------------
+Fichero instancias/GKD-c_12_n500_m50.txt abierto correctamente.
+Botella de Klein: 19359.6
+Cinta de Mobius: 19360.2
+Plano Proyectivo: 19353.1
+Toro Llano: 19359.7
+Máximo: 19360.2
+
+Tiempo: 10.3416
+--------------------------------------
+Fichero instancias/GKD-c_13_n500_m50.txt abierto correctamente.
+Botella de Klein: 19366.7
+Cinta de Mobius: 19364
+Plano Proyectivo: 19366.7
+Toro Llano: 19366.7
+Máximo: 19366.7
+
+Tiempo: 9.76417
+--------------------------------------
+Fichero instancias/GKD-c_14_n500_m50.txt abierto correctamente.
+Botella de Klein: 19458.5
+Cinta de Mobius: 19458.6
+Plano Proyectivo: 19458.2
+Toro Llano: 19458.5
+Máximo: 19458.6
+
+Tiempo: 14.7408
+--------------------------------------
+Fichero instancias/GKD-c_15_n500_m50.txt abierto correctamente.
+Botella de Klein: 19418.7
+Cinta de Mobius: 19422.1
+Plano Proyectivo: 19421.6
+Toro Llano: 19419
+Máximo: 19422.1
+
+Tiempo: 11.0387
+--------------------------------------
+Fichero instancias/GKD-c_16_n500_m50.txt abierto correctamente.
+Botella de Klein: 19676.7
+Cinta de Mobius: 19671.8
+Plano Proyectivo: 19680.2
+Toro Llano: 19680.2
+Máximo: 19680.2
+
+Tiempo: 10.0599
+--------------------------------------
+Fichero instancias/GKD-c_17_n500_m50.txt abierto correctamente.
+Botella de Klein: 19331.4
+Cinta de Mobius: 19331.4
+Plano Proyectivo: 19331.4
+Toro Llano: 19331.4
+Máximo: 19331.4
+
+Tiempo: 9.24702
+--------------------------------------
+Fichero instancias/GKD-c_18_n500_m50.txt abierto correctamente.
+Botella de Klein: 19461.4
+Cinta de Mobius: 19461.4
+Plano Proyectivo: 19461.4
+Toro Llano: 19461.4
+Máximo: 19461.4
+
+Tiempo: 9.42584
+--------------------------------------
+Fichero instancias/GKD-c_19_n500_m50.txt abierto correctamente.
+Botella de Klein: 19477.3
+Cinta de Mobius: 19477.3
+Plano Proyectivo: 19473
+Toro Llano: 19477.3
+Máximo: 19477.3
+
+Tiempo: 9.27672
+--------------------------------------
+Fichero instancias/GKD-c_20_n500_m50.txt abierto correctamente.
+Botella de Klein: 19604.8
+Cinta de Mobius: 19604.8
+Plano Proyectivo: 19602
+Toro Llano: 19604.8
+Máximo: 19604.8
+
+Tiempo: 9.5309
+--------------------------------------
+Fichero instancias/MDG-a_31_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112022
+Cinta de Mobius: 112187
+Plano Proyectivo: 112069
+Toro Llano: 112171
+Máximo: 112187
+
+Tiempo: 94.2441
+--------------------------------------
+Fichero instancias/MDG-a_32_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112131
+Cinta de Mobius: 112526
+Plano Proyectivo: 112095
+Toro Llano: 112318
+Máximo: 112526
+
+Tiempo: 107.281
+--------------------------------------
+Fichero instancias/MDG-a_33_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112094
+Cinta de Mobius: 112176
+Plano Proyectivo: 112490
+Toro Llano: 112095
+Máximo: 112490
+
+Tiempo: 96.6363
+--------------------------------------
+Fichero instancias/MDG-a_34_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112226
+Cinta de Mobius: 111984
+Plano Proyectivo: 112152
+Toro Llano: 112226
+Máximo: 112226
+
+Tiempo: 99.5671
+--------------------------------------
+Fichero instancias/MDG-a_35_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112112
+Cinta de Mobius: 112359
+Plano Proyectivo: 111994
+Toro Llano: 112185
+Máximo: 112359
+
+Tiempo: 101.922
+--------------------------------------
+Fichero instancias/MDG-a_36_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112155
+Cinta de Mobius: 112363
+Plano Proyectivo: 112259
+Toro Llano: 112160
+Máximo: 112363
+
+Tiempo: 99.964
+--------------------------------------
+Fichero instancias/MDG-a_37_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112268
+Cinta de Mobius: 112435
+Plano Proyectivo: 112326
+Toro Llano: 112268
+Máximo: 112435
+
+Tiempo: 92.331
+--------------------------------------
+Fichero instancias/MDG-a_38_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112403
+Cinta de Mobius: 112409
+Plano Proyectivo: 112532
+Toro Llano: 112403
+Máximo: 112532
+
+Tiempo: 94.9926
+--------------------------------------
+Fichero instancias/MDG-a_39_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112163
+Cinta de Mobius: 112213
+Plano Proyectivo: 112431
+Toro Llano: 112163
+Máximo: 112431
+
+Tiempo: 93.8141
+--------------------------------------
+Fichero instancias/MDG-a_40_n2000_m200.txt abierto correctamente.
+Botella de Klein: 112151
+Cinta de Mobius: 112070
+Plano Proyectivo: 112419
+Toro Llano: 112434
+Máximo: 112434
+
+Tiempo: 95.5878
+--------------------------------------
+Fichero instancias/MDG-b_10_n500_m50.txt abierto correctamente.
+Botella de Klein: 768620
+Cinta de Mobius: 760321
+Plano Proyectivo: 758404
+Toro Llano: 768620
+Máximo: 768620
+
+Tiempo: 10.0937
+--------------------------------------
+Fichero instancias/MDG-b_1_n500_m50.txt abierto correctamente.
+Botella de Klein: 769661
+Cinta de Mobius: 765862
+Plano Proyectivo: 764226
+Toro Llano: 769661
+Máximo: 769661
+
+Tiempo: 9.80361
+--------------------------------------
+Fichero instancias/MDG-b_2_n500_m50.txt abierto correctamente.
+Botella de Klein: 765770
+Cinta de Mobius: 762148
+Plano Proyectivo: 768273
+Toro Llano: 765770
+Máximo: 768273
+
+Tiempo: 9.41881
+--------------------------------------
+Fichero instancias/MDG-b_3_n500_m50.txt abierto correctamente.
+Botella de Klein: 767599
+Cinta de Mobius: 761327
+Plano Proyectivo: 765209
+Toro Llano: 767690
+Máximo: 767690
+
+Tiempo: 10.5552
+--------------------------------------
+Fichero instancias/MDG-b_4_n500_m50.txt abierto correctamente.
+Botella de Klein: 763243
+Cinta de Mobius: 759546
+Plano Proyectivo: 762587
+Toro Llano: 763243
+Máximo: 763243
+
+Tiempo: 9.85207
+--------------------------------------
+Fichero instancias/MDG-b_5_n500_m50.txt abierto correctamente.
+Botella de Klein: 760757
+Cinta de Mobius: 761758
+Plano Proyectivo: 762755
+Toro Llano: 760790
+Máximo: 762755
+
+Tiempo: 9.80999
+--------------------------------------
+Fichero instancias/MDG-b_6_n500_m50.txt abierto correctamente.
+Botella de Klein: 761953
+Cinta de Mobius: 758809
+Plano Proyectivo: 752725
+Toro Llano: 761953
+Máximo: 761953
+
+Tiempo: 9.51931
+--------------------------------------
+Fichero instancias/MDG-b_7_n500_m50.txt abierto correctamente.
+Botella de Klein: 764671
+Cinta de Mobius: 772318
+Plano Proyectivo: 765160
+Toro Llano: 765219
+Máximo: 772318
+
+Tiempo: 11.5759
+--------------------------------------
+Fichero instancias/MDG-b_8_n500_m50.txt abierto correctamente.
+Botella de Klein: 767355
+Cinta de Mobius: 764456
+Plano Proyectivo: 762766
+Toro Llano: 767355
+Máximo: 767355
+
+Tiempo: 10.3411
+--------------------------------------
+Fichero instancias/MDG-b_9_n500_m50.txt abierto correctamente.
+Botella de Klein: 759080
+Cinta de Mobius: 764790
+Plano Proyectivo: 764169
+Toro Llano: 762272
+Máximo: 764790
+
+Tiempo: 10.8385

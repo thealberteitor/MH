@@ -47,8 +47,8 @@ class poblacion{
     void mudar_piel();
 
     //aplicar BL
-    void aplicar_BL();
-    
+    void aplicar_BL(int &eval);
+
     //viajar de una superficie a otra para favorecer la exploración de otras zonas
     void viaje(poblacion bk);
 

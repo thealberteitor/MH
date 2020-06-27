@@ -12,6 +12,11 @@
 using namespace std;
 
 
+
+//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//Funciones para la función objetivo
+
 //tenemos las contribuciones independientes, tomar la que tenga menos contribución
 double ContribucionIndep(int indice, vector<bool> &sel, vector<vector<double> > &dist){
   double sum=0;
@@ -20,7 +25,6 @@ double ContribucionIndep(int indice, vector<bool> &sel, vector<vector<double> > 
 
   return sum; //mirar seminario2, pag 24
 }
-
 
 
 //de la forma anterior (greedy no se puede hacer)
@@ -37,6 +41,10 @@ double CosteEstimado(vector<bool> entrada, vector<vector<double> > distancias){
 }
 
 
+
+//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//Función que simula una distribución uniforme
 //bool genAleat(double prob, unsigned seed = std::random_device{}())
 bool U(double prob, unsigned seed = rand()){
   static std::mt19937 gen{seed};
@@ -45,25 +53,11 @@ bool U(double prob, unsigned seed = rand()){
 }
 
 
-
-
-
-
-vector<bool> convertToBool(vector<int> hijo1){
-  vector<bool> h1;
-  for(int i=0; i<hijo1.size(); i++){
-    if(hijo1[i]==1)
-      h1.push_back(true);
-    else
-      h1.push_back(false);
-  }
-  return h1;
+double Uniform(unsigned seed = rand()){
+  static std::mt19937 gen{seed};
+  std::uniform_real_distribution<double> dist(0,0.2);
+  return dist(gen);
 }
-
-
-
-
-
 
 
 //////////////////////////////////////////////////////////////////
@@ -71,6 +65,10 @@ vector<bool> convertToBool(vector<int> hijo1){
 //Búsqueda Local
 
 //tenemos las contribuciones independientes, tomar la que tenga menos contribución
+
+//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//Funciones para la función objetivo pero para la Ba BL, ya que es codificación entera
 double ContribucionIndepBL(int indice, vector<int> &sel, vector<vector<double> > &dist){
   vector<int>::iterator it;
   double sum=0;
@@ -95,6 +93,10 @@ double CosteEstimadoBL(vector<int> entrada, vector<vector<double> > distancias){
 }
 
 
+
+//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//Transformar una solución a enteros /binarios
 vector<int> pasarAEnteros(vector<bool> solucion){
   vector<int> sel_i;
 
@@ -121,6 +123,8 @@ vector<bool> pasarABinarios(vector<int> solucion, int n){
 }
 
 
+
+
 int GeneraJ(int i, vector<int> sel, int n, vector<int> &todasJ){
   int j;
   vector<int>::iterator it, it2;
@@ -138,14 +142,15 @@ int GeneraJ(int i, vector<int> sel, int n, vector<int> &todasJ){
 }
 
 
-pair< vector<bool>, double > EvaluaVecinos(pair< vector<bool>, double > f1, vector<vector<double> > &dist){
+//Funciones principal de la BL
+pair< vector<bool>, double > EvaluaVecinos(pair< vector<bool>, double > f1, vector<vector<double> > dist, int &eval2){
 
 
   bool mejora = true, salir;
   int n = dist.size(), c, ind;
   int eval=0;
 
-  const int MAX = 10000;
+  const int MAX = 2000;
   pair< vector<int>, double > inicial(pasarAEnteros(f1.first), f1.second);
   int m = inicial.first.size();
 
@@ -210,6 +215,7 @@ pair< vector<bool>, double > EvaluaVecinos(pair< vector<bool>, double > f1, vect
       }
       c++;
       eval++; //evaluaciones de la Búsqueda Local
+      //eval2++;
     }
   }
   dev.first = pasarABinarios(inicial.first, dist.size());
@@ -227,13 +233,9 @@ pair< vector<bool>, double > EvaluaVecinos(pair< vector<bool>, double > f1, vect
 
 
 
-
-
-
-
-
-
-
+//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//Calcular centroide y devuelve el índice del elemento correspondiente a él
 int s_center(vector<bool> all, vector<vector<double> > dist){
   vector<double> sumafilas(all.size());
   double suma=0;
@@ -254,7 +256,7 @@ int s_center(vector<bool> all, vector<vector<double> > dist){
   dev = dev/sumafilas.size();
   //return dev/sumafilas.size();
   //Buscamos el elemento más cercano al centro
-  double min=9999999;
+  double min=DBL_MAX;
   int indice=0;
 
   for(int i=0;i<sumafilas.size(); i++){
@@ -268,7 +270,9 @@ int s_center(vector<bool> all, vector<vector<double> > dist){
 }
 
 
-
+//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//Calcular el centroide del conjunto de seleccionados
 double sel_center(vector<bool> all, vector<vector<double> > dist){
   int t = count(all.begin(), all.end(), true);
   vector<double> sumafilas(all.size());
@@ -296,7 +300,7 @@ double sel_center(vector<bool> all, vector<vector<double> > dist){
 
 
   //Buscamos el elemento más cercano al centro
-  double min=9999999;
+  double min=DBL_MAX;
   int indice=0;
 
   for(int i=0;i<sumafilas.size(); i++){
@@ -312,8 +316,12 @@ double sel_center(vector<bool> all, vector<vector<double> > dist){
 
 
 
+
+//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//Búsqueda Tabú
 vector<bool> BusquedaTabu(int m, vector<vector<double> > dist){
-  const int EVALUACIONES =1;
+  const int EVALUACIONES =5;
 
   int n = dist.size();
   vector<int> freq(n,0);
@@ -322,7 +330,8 @@ vector<bool> BusquedaTabu(int m, vector<vector<double> > dist){
 
   int eval=0, total=0;
   int centroide = s_center(sol, dist);
-  double delta = 0.01, beta=0.01;
+  double delta = Uniform(), beta=Uniform();
+  //cerr << delta << " " << beta << endl;
 
   double max_f, max_q, energy;
   double max_dist;
@@ -373,10 +382,6 @@ vector<bool> BusquedaTabu(int m, vector<vector<double> > dist){
         quality[i]= (quality[i]*(freq[i]+z))/freq[i];
       }
     }
-
-
-
-
     total=0;
   }
   return sol;
@@ -390,20 +395,9 @@ vector<bool> BusquedaTabu(int m, vector<vector<double> > dist){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 //constructor, le pasamos la matriz de distancias
 poblacion::poblacion(string nombre, int k, int j, vector<vector<double> > distances){
-  n=15;
+  n=10;
   id_k = k;
   id_j = j;
   superficie=nombre;
@@ -442,7 +436,7 @@ void poblacion::mostrarPoblacion(){
 
 void poblacion::mejor_indice(){
   best = distance(values.begin(), max_element(values.begin(), values.end()));
-  cout << values[best];
+  //cout << values[best];
 }
 
 
@@ -458,134 +452,206 @@ int poblacion::TorneoBinario(int sol1, int sol2){
 }
 
 
-poblacion poblacion::seleccion(){
-  poblacion poblacion2(" ", 0, 0, dist);
-
-  int ganador;
-  for(int i=0; i<n; i++){
-    ganador = TorneoBinario(rand()%n, rand()%n);
-    poblacion2.soluciones.push_back(soluciones[ganador]);
-  }
-  return poblacion2;
-}
-
-
-
-
-
 
 void poblacion::elitismo(vector<bool> mejor, double coste){
-  int peor=distance(values.begin(), min_element(values.begin(), values.end()));
-  soluciones[peor]=mejor;
-  values[peor]=coste;
+  /*
+  Elitismo modificado (ya que obtengo en media mejores resultados):
+  Si la mejor solución del estado anterior no sobrevive, sustituye directamente
+  la peor solución del nuevo estado.
+  */
+  if(find(values.begin(),values.end(),coste)==values.end()){
+    //Si no está el mejor de la población anterior:
+    int peor=distance(values.begin(), min_element(values.begin(), values.end()));
+    soluciones[peor]=mejor;
+    values[peor]=coste;
 
-  if(values[peor]>values[best])
-    best = peor;
+    if(values[peor]>values[best])
+      best = peor;
+  }
+}
+
+/*
+void poblacion::elitismo(vector<bool> mejor, double coste){
+
+  //Si el mejor del estado anterior es mejor que el nuevo mejor del estado
+  //siguiente, lo sustituimos por el peor (definición original)
+
+  if(values[best]<coste){
+    //Si no está el mejor de la población anterior:
+    int peor=distance(values.begin(), min_element(values.begin(), values.end()));
+    soluciones[peor]=mejor;
+    values[peor]=coste;
+
+    if(values[peor]>values[best])
+      best = peor;
+  }
+}
+*/
+
+
+
+vector<bool> Intercambio(vector<bool> h1, int i, int j){
+  swap(h1[i], h1[j]);
+  return h1;
 }
 
 
 
 void poblacion::movimiento(){
+  int s;
+  //double antiguo, nuevo;
+  /*
+  Prueba factorización de la función objetivo
+  Está comentado, para probar con la factorización objetivo debe descomentar
+  todo lo comentado en esta función.
+  */
 
   if(superficie=="Botella de Klein"){
-    int s ;
+    for(int i=0; i<n; i++){
+      int id=rand()%4;
+
+      if(id==0){  //k
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][id_k]);
+
+        //antiguo = ContribucionIndep(id_k, soluciones[i], dist);
+        swap(soluciones[i][id_k], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
+      else if(id==1 || id==3){ //j
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][id_j]);
+
+        //antiguo = ContribucionIndep(id_j, soluciones[i], dist);
+        swap(soluciones[i][id_j], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
+      else if(id==2){ //n-k
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][dist.size()-id_k]);
+
+        //antiguo = ContribucionIndep(dist.size()-id_k, soluciones[i], dist);
+        swap(soluciones[i][dist.size()-id_k], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
+    }
+  }else if(superficie=="Cinta de Mobius"){
+
+    for(int i=0; i<n; i++){
+      int id=rand()%2;
+
+      if(id==0){ //k
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][id_k]);
+
+        //antiguo = ContribucionIndep(id_k, soluciones[i], dist);
+        swap(soluciones[i][id_k], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
+      else if(id==1){ //n-k
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][dist.size()-id_k]);
+
+        //antiguo = ContribucionIndep(dist.size()-id_k, soluciones[i], dist);
+        swap(soluciones[i][dist.size()-id_k], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
+    }
+  }
+  else if(superficie=="Plano Proyectivo"){
 
     for(int i=0; i<n; i++){
       int id=rand()%4;
 
-      switch (id){
-        case 0: //k
-          do{
-            s=rand()%dist.size();
-          }while(s==id_k);
-          swap(soluciones[i][id_k], soluciones[i][s]);
+      if(id==0){ //k
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][id_k]);
 
-          break;
-
-        case 1:  //j
-        case 3:
-          do{
-            s=rand()%dist.size();
-          }while(s==id_j);
-          swap(soluciones[i][id_j], soluciones[i][s]);
-
-          break;
-
-        case 2: //n-k
-          do{
-            s=rand()%dist.size();
-          }while(s==id_k);
-          swap(soluciones[i][dist.size()-id_k], soluciones[i][s]);
-          break;
+        //antiguo = ContribucionIndep(id_k, soluciones[i], dist);
+        swap(soluciones[i][id_k], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
       }
+
+      else if(id==1){ //j
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][id_j]);
+
+        //antiguo = ContribucionIndep(id_j, soluciones[i], dist);
+        swap(soluciones[i][id_j], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
+      else if(id==2){ //n-k
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][dist.size()-id_k]);
+
+        //antiguo = ContribucionIndep(dist.size()-id_k, soluciones[i], dist);
+        swap(soluciones[i][dist.size()-id_k], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
+      else if (id==3){ //n-j
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][dist.size()-id_j]);
+
+        //antiguo = ContribucionIndep(dist.size()-id_j, soluciones[i], dist);
+        swap(soluciones[i][dist.size()-id_j], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
+
     }
+  }
 
-
-  }else if(superficie=="Plano Proyectivo"){
-
-    int s ;
+  else if(superficie=="Toro Llano"){
 
     for(int i=0; i<n; i++){
       int id=rand()%4;
 
-      switch (id) {
-        case 0: //k
-          do{
-            s=rand()%dist.size();
-          }while(s==id_k);
-          swap(soluciones[i][id_k], soluciones[i][s]);
+      if(id==0 || id==2){ //k
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][id_k]);
 
-          break;
+        //antiguo = ContribucionIndep(id_k, soluciones[i], dist);
+        swap(soluciones[i][id_k], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
+      }
 
-        case 1: //j
-          do{
-            s=rand()%dist.size();
-          }while(s==id_j);
-          swap(soluciones[i][id_j], soluciones[i][s]);
-          break;
+      else if(id==1 || id==3){ //j
+        do{
+          s=rand()%dist.size();
+        }while(soluciones[i][s]==soluciones[i][id_j]);
 
-        case 2: //n-k
-          do{
-            s=rand()%dist.size();
-          }while(s==id_k);
-          swap(soluciones[i][dist.size()-id_k], soluciones[i][s]);
-          break;
-
-        case 3: //n-j
-          do{
-            s=rand()%dist.size();
-          }while(s==id_j);
-          swap(soluciones[i][dist.size()-id_j], soluciones[i][s]);
-          break;
+        //antiguo = ContribucionIndep(id_j, soluciones[i], dist);
+        swap(soluciones[i][id_j], soluciones[i][s]);
+        //nuevo = ContribucionIndep(s, soluciones[i], dist);
+        //values[i] += nuevo - antiguo;
       }
     }
-
-  }else if(superficie=="Toro Llano"){
-    int s ;
-
-    for(int i=0; i<n; i++){
-      int id=rand()%4;
-
-      switch (id) {
-        case 0:
-        case 2:
-          do{
-            s=rand()%dist.size();
-          }while(s==id_k);
-          swap(soluciones[i][id_k], soluciones[i][s]);
-
-          break;
-
-        case 1:
-        case 3:
-          do{
-            s=rand()%dist.size();
-          }while(s==id_j);
-          swap(soluciones[i][id_j], soluciones[i][s]);
-          break;
-      }
-    }
-
   }
 }
 
@@ -612,15 +678,12 @@ vector<bool> SolucionInicial(int n, int m){
   return sel;
 }
 
-
-
 void inicializarId(int &id_k, int &id_j, int n){
   id_k = rand()%n;
   do{
     id_j = rand()%n;
   }while(id_k==id_j);
 }
-
 
 vector<bool> poblacion::mutacionBrusca(vector<bool> sel){
   int n=sel.size();
@@ -636,11 +699,11 @@ vector<bool> poblacion::mutacionBrusca(vector<bool> sel){
     }while(sel[i]==sel[j]);
 
     swap(sel[i],sel[j]);
+
     total--;
   }
   return sel;
 }
-
 
 void poblacion::nutrirse(){
   for(int i=0; i<n; i++){
@@ -650,7 +713,7 @@ void poblacion::nutrirse(){
 }
 
 void poblacion::mudar_piel(){
-  int n_inicial = 15;
+  int n_inicial = 10;
   vector<bool> res;
   for(int i=0; i<n; i++){
     if(ones[i]>=soluciones[i].size()/3){
@@ -666,14 +729,11 @@ void poblacion::mudar_piel(){
         values[peor] = CosteEstimado(res,dist);
         soluciones[peor]=res;
       }
-
     }
   }
-
 }
 
-
-void poblacion::aplicar_BL(){
+void poblacion::aplicar_BL(int &eval){
   int npeores=n/2;
   int peor;
   pair< vector<bool>, double > bl;
@@ -681,7 +741,7 @@ void poblacion::aplicar_BL(){
       peor = distance(values.begin(), min_element(values.begin(), values.end()));
       bl.first=soluciones[peor];
       bl.second=values[peor];
-      bl = EvaluaVecinos(bl, dist);
+      bl = EvaluaVecinos(bl, dist, eval);
       soluciones[peor]=bl.first;
       values[peor]=bl.second;
   }
@@ -694,104 +754,102 @@ void poblacion::viaje(poblacion otra){
   values.push_back(otra.values[best]);
   n++;
   ones.resize(n+1);
-
 }
 
 
+
 void MundoSuperficie(int m, vector<vector<double> > dist){
-  //Mundo Superficie
-  const int EVALUACIONES=300000;
+
   int n=dist.size();
   int eval=0;
 
   //INICIALIZAR LA POBLACIÓN
   int id_k, id_j;
+  vector<string> nombres = {"Botella de Klein", "Cinta de Mobius",
+                            "Plano Proyectivo", "Toro Llano"};
+  //const int EVALUACIONES=120000;//*nombres.size();
+  //const int EVALUACIONES=100000*nombres.size();
+  const int EVALUACIONES=100000;
 
-  inicializarId(id_k, id_j, n);
-  poblacion bk("Botella de Klein", id_k, id_j, dist);
+  vector<poblacion> superficies;
 
-  inicializarId(id_k, id_j, n);
-  poblacion pp("Plano Proyectivo", id_k, id_j, dist);
-
-  inicializarId(id_k, id_j, n);
-  poblacion tl("Toro Llano", id_k, id_j, dist);
-
-
-  for(int i=0; i<bk.n; i++){
-    //bk.soluciones.push_back(SolucionInicial(n,m));
-    //pp.soluciones.push_back(SolucionInicial(n,m));
-    //tl.soluciones.push_back(SolucionInicial(n,m));
-    bk.soluciones.push_back(BusquedaTabu(m,dist));
-    pp.soluciones.push_back(BusquedaTabu(m, dist));
-    tl.soluciones.push_back(BusquedaTabu(m,dist));
+  for(int i=0; i<nombres.size(); i++){
+    inicializarId(id_k, id_j, n);
+    poblacion p(nombres[i], id_k, id_j, dist);
+    superficies.push_back(p);
   }
 
-  cerr << "next step " << endl;
-  bk.evaluarPoblacion(eval);
-  pp.evaluarPoblacion(eval);
-  tl.evaluarPoblacion(eval);
-
-
-  vector<bool> mejor;
-
-  while(eval<EVALUACIONES){
-    mejor = bk.soluciones[bk.best];
-    bk.movimiento();
-    bk.evaluarPoblacion(eval);
-    bk.elitismo(mejor, CosteEstimado(mejor,dist));
-    bk.nutrirse();
-    bk.mudar_piel();
-
-
-    mejor = pp.soluciones[pp.best];
-    pp.evaluarPoblacion(eval);
-    pp.movimiento();
-    pp.elitismo(mejor, CosteEstimado(mejor,dist));
-    pp.nutrirse();
-    pp.mudar_piel();
-
-    mejor = tl.soluciones[tl.best];
-    tl.evaluarPoblacion(eval);
-    tl.movimiento();
-    tl.elitismo(mejor, CosteEstimado(mejor,dist));
-    tl.nutrirse();
-    tl.mudar_piel();
-
-    cerr << eval << endl;
-
-
-
-
-
-    if(U(0.001)){
-
-      pp.aplicar_BL();
-      tl.aplicar_BL();
-      tl.aplicar_BL();
-
-      int op = distance(pp.values.begin(), max_element(pp.values.begin(), pp.values.end()));
-      cerr << "NOMBRE OP: " << pp.values[op] << "#####################" << endl;
-
-      bk.viaje(pp);
-      pp.viaje(tl);
-      tl.viaje(bk);
+  for(int i=0; i<superficies.size(); i++){
+    for(int j=0; j<superficies[i].n; j++){
+      if(j%2==0)
+        superficies[i].soluciones.push_back(SolucionInicial(n,m));
+      else
+        superficies[i].soluciones.push_back(BusquedaTabu(m,dist));
     }
   }
 
-  cout << "\nTL: ";
-  tl.mejor_indice();
 
-  cout << "\nBK: " ;
-  bk.mejor_indice();
+  for(int i=0; i<superficies.size(); i++){
+    superficies[i].evaluarPoblacion(eval);
+  }
 
-  cout << "\nPP: ";
-  pp.mejor_indice();
+  vector<bool> mejor;
+  double coste_mejor=0;
+  while(eval<EVALUACIONES){
+
+    //cerr << eval << endl;
+    for(int i=0; i<superficies.size(); i++){
+      mejor= superficies[i].soluciones[superficies[i].best];
+      coste_mejor=superficies[i].values[superficies[i].best];
+
+      superficies[i].movimiento();
+      superficies[i].evaluarPoblacion(eval);
+      /*
+      Para ejecutar con la fact. de la función objetivo debe comentar la
+      línea 782 y descomentar estas:
+
+      superficies[i].mejor_indice();
+      eval+=2*superficies[i]. //una por la antigua y otra por la nueva contrib.
+      */
+      superficies[i].nutrirse();
+      superficies[i].mudar_piel();
+      superficies[i].elitismo(mejor, coste_mejor);
+    }
+
+    //cerr << eval << endl;
+
+    if(U(0.001)){
+    //if(U(0.0015)){
 
 
+      for(int i=0; i<superficies.size(); i++){
+        superficies[i].aplicar_BL(eval);
 
+        /*
+        int op;
+        cerr << "VIAJE PRODUCIDO: " << endl;
+        op = distance(superficies[i].values.begin(), max_element(superficies[i].values.begin(), superficies[i].values.end()));
+        cerr << superficies[i].superficie << ": " << superficies[i].values[superficies[i].best] << endl;
+        */
+        superficies[i].viaje(superficies[(i+1)%superficies.size()]);
+
+      }
+    }
+  }
+  double maximo=-1;
+  double valor;
+
+  for(int i=0; i<superficies.size(); i++){
+    cout << superficies[i].superficie << ": ";
+    superficies[i].evaluarPoblacion(eval);
+    //superficies[i].mejor_indice();
+    valor = superficies[i].values[superficies[i].best];
+    cout << valor << endl;
+    if(valor>maximo)
+      maximo=superficies[i].values[superficies[i].best];
+  }
+  cout << "Máximo: " << maximo << endl;
 }
-
-
 
 
 

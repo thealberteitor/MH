@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Comentar uno de los dos y ejecutar ./execute.sh para ejecutar todos los ficheros a la vez
+#Ejecutar ./execute.sh para ejecutar todos los ficheros a la vez
 ejecutar=MundoSuperficie
 
 

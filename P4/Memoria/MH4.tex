@@ -25,6 +25,7 @@
 \huge Propuesta de metaheurística personalizada \\ para el Problema de la Máxima Diversidad  (MDP) \\ % The assignment title
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
+\usepackage{movie15}
 \author{Alberto Jesús Durán López \\ 
 DNI: 54142189-M \\
 albduranlopez@gmail.com \\
@@ -96,7 +97,7 @@ El \textbf{MDP} se puede formular como: \\
 
 
 \newpage
-\section{Datos y casos considerados}
+\subsection{Datos y casos considerados}
 \hspace{1.5cm} Las ejecuciones se han realizado en un ordenador \texttt{Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz, 16GB RAM, 512 SSD}. 
 
 
@@ -111,28 +112,12 @@ Todos los archivos se han compilado con la opción de optimización \texttt{-O2}
 las ejecuciones ha sido 54142189, pudiéndose ésta indicar en la ejecución del archivo en cuestión. 
 
 
-\section{Metaheurística original propuesta}
-
-Los juegos clásicos que todos conocemos como el buscaminas o el pong, entre otros, se han llevado a cabo en un tablero finito  de dimensiones NXM. 
-Sin embargo, existen otros juegos como el snake cuyo tablero no es un plano finito, es decir, se juega sobre un toro llano. SUper ficie no única ,se puede dotar a estos tableros de identificaciones para modificar el tablero.
-
-Antes de empezar, distinguimos los dos tipos de superficies que existen:
-
-\begin{itemize}
-	\item  Una superficie es no orientable si existe al menos una curva cerrada simple contenida que es homeomorfa a una banda de Möbius. Ejemplos: La propia banda de Möbius, plano proyectivo, botella de Klein..etc
-	\item En caso contrario, la superficie será orientable. Ejemplos: Toro llano, suma conexa de k toros,
-\end{itemize}
 
 
 
 
-\newpage 
-\section{Esquema de representación de soluciones}
 
-Para todos los algoritmos menos para la \textit{Búsqueda Local}, se ha usado una codificación basada en números binarios. Sin embargo, dejaremos la explicación para las siguientes secciones, donde se explicará con detalle en cada algoritmo.
-
-
-\section{Descripción de la Función Objetivo}
+\subsection{Descripción de la Función Objetivo}
 
 Todos los algoritmos implementados hacen uso de la misma función objetivo, la comentada en el punto (2) anterior y cuyo pseudocódigo mostramos a continuación. Bien es cierto que en el caso de la \textit{Búsqueda Local} se tiene que usar codificación basada en números enteros, sin embargo, dicha función se ve mínimamente modificada.
 
@@ -201,11 +186,168 @@ Todos los algoritmos implementados hacen uso de la misma función objetivo, la c
 \end{figure}
 
 
+\newpage 
+\section{Metaheurística original propuesta}
+
+Los juegos clásicos que todos conocemos como el buscaminas, tetris o pacman, entre otros, se caracterizan por hacer uso de un tablero o, mejor dicho, un plano finito para su representación.
+
+Esto quiere decir que estos juegos funcionan en un recinto acotado, no pudiendo las diferentes componentes del juego salir de éste. \\
+
+Por otro lado, existen otros juegos como el \textit{snake} que hacen uso de un tablero cuya superficie es un toro llano. En ésta, cuando la serpiente sale por arriba, entra por abajo y al igual ocurre con los lados, si sale por la derecha, entrará por la izquierda y viceversa.
+
+Es decir, podemos establecer una identificación con los bordes de forma que aplicando transformaciones topológicas podemos obtener un toroide tal y como se muestra en la siguiente imagen:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{img/toro.png}
+	\caption{Pegado de un toro}
+	\label{toro}
+\end{figure}
+
+Puede además dirigirse al siguiente \href{https://www.youtube.com/watch?v=0KwGE6hAtGc}{enlace} para ver de forma animada como se lleva a cabo este pegado. \\
+
+Como podemos imaginar, el toro llano o toroide no es la única superficie que se puede construir identificando lados. De hecho, estas superficies admiten una clasificación que comentamos a continuación:
+
+
+\begin{itemize}
+	\item  Una superficie es \textbf{no orientable} si existe al menos una curva cerrada simple contenida que es homeomorfa a una banda de Möbius. Ejemplos: 
+	
+	\begin{enumerate}
+		\item \texttt{Banda de Möbius}: \href{https://www.youtube.com/watch?v=fCJ0mCUaEok}{pegado}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{img/idb.png}
+				\qquad
+				\includegraphics[scale=0.25]{img/flecha.png}
+				\qquad
+				\includegraphics[scale=0.3]{img/banda.png}
+				
+				\caption{Pegado de una banda de Möbius}
+			\end{figure}
+		
+		\item \texttt{Plano Proyectivo}: Quizás las siguientes superficies necesiten algo más de visión espacial ya que el \href{https://www.youtube.com/watch?v=W-sKLN0VBkk}{pegado} no es tan trivial.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.35]{img/a.png}
+			\caption{Pegado de un Plano Proyectivo}
+		\end{figure}
+		
+		\item \texttt{Botella de Klein}: \href{https://www.youtube.com/watch?v=yaeyNjUPVqs}{Enlace}
+		
+					\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.4]{img/klein.png}
+				\caption{Pegado de una Botella de Klein}
+			\end{figure}
+	\end{enumerate}
+	
+
+	\item En caso contrario, la superficie será \textbf{orientable}. Ejemplos: Toro llano \ref{toro}, cilindro, suma conexa de k-toros...etc
+\end{itemize}
+
+\subsection{Adaptación de la propuesta al problema MDP}
+
+
+Recordando nuestro problema MDP, teníamos que escoger un subconjunto de m elementos de un conjunto inicial de \textbf{n} elementos de forma que se maximice la diversidad entre los elementos escogidos. A este conjunto se le suele denominar \textit{sel} (seleccionados) y en una primera versión implementada está creado de forma aleatoria.
+
+En la sección anterior hemos visto como a partir de identificaciones en los bordes de un cuadrado podemos dar lugar a diferentes superficies, por ello, he tomado diferentes soluciones (generadas aleatoriamente) que viven en cada una de las superficies para ver cómo se comportan.
+
+
+Las características que rigen el comportamiento de nuestro algoritmo son las siguientes:
+
+\begin{itemize}
+	\item \texttt{Movimiento}: La operación que simula cada identificación será una mutación. ¿Cómo haremos esto? Relacionándolos de forma que identificaciones en el mismo sentido serán mutaciones en el mismo caracter/posición, mientras que mutaciones en sentidos opuestos serán mutaciones en las posiciones $k$ y $n-k$, respectivamente. (n es el tamaño de la población).
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.38]{img/topo6.png}
+	\end{figure}
+	
+	
+		A modo de ejemplo, lo explicaremos con el famoso juego del \textit{Snake} en la superficie de Toro llano cuyo modelo es el que ha seguido nuestra implementación.
+		
+	Cuando nuestra serpiente sale por la parte superior, se muta el carácter $k$, igual que si sale por la parte inferior, ya que en un toro las partes superior e inferior están identificadas. Cuando la serpiente sale por la izquierda o derecha, se muta otro caracter $t$, ya que ambos lados también están identificados pero son distintos al anterior.
+	
+	Con esto conseguimos entornos amplios y variados, cada uno caracterizado por tener una exploración de una región distinta. \\
+	
+	
+	\item \texttt{Nutrición}: Siguiendo con las reglas del \textit{Snake}, en todo momento hay un pixel en el tablero que hace referencia a 'comida' que nuestra serpiente puede coger para crecer. En nuestro programa se simulará lo mismo haciendo uso de una distribución uniforme en el intervalo [0,1]. Cuando cada serpiente haya obtenido un número de alimento igual a $\frac{n}{3}$, nuestra solución será lo suficientemente capaz para tener descendencia y dar lugar a una nueva solución en la que se ha producido una mutación brusca (para dar lugar a hijos diferentes en gran medida a los padres y así evitar óptimos locales). 
+	
+	Los valores de la Distribución Uniforme se han elegido de acuerdo a numerosas pruebas para que las soluciones no crezcan en exceso (ya que a mayor número de soluciones se gastan más evaluaciones de la función objetivo produciendo así una menor convergencia). 
+	
+
+	
+
+	
+	
+\end{itemize}
+
+\newpage 
+\subsection{Mejoras tenidas en cuenta en esta primera versión}
+\begin{enumerate}
+	\item \texttt{Mejora en la representación}: Para todos los algoritmos menos para la \textit{Búsqueda Local}, se ha usado una codificación basada en números binarios. Sin embargo, dejaremos la explicación para las siguientes secciones, donde se explicará con detalle en cada algoritmo.
+	
+	En relación con la estructura de datos usada, tras varias pruebas se ha optado por la modularización en una clase denominada \textit{Superficie} en la que se le ha de indicar en el constructor los índices referentes a la mutación de cada superficie.
+	
+	
+
+	
+	\item Para favorecer la convergencia se ha tenido en cuenta el factor elitista. En cada superficie, si la mejor solución del estado anterior no sobrevive, sustituye directamente la peor solución del estado siguiente. ¿Por qué únicamente la mejor? Para evitar así la convergencia prematura y explorar el máximo de entornos posibles.
+	
+	\item \texttt{Modelo Distribuido. Modelo isla para añadir un operador de viaje}: Tenemos soluciones en diferentes superficies que han ido evolucionando en paralelo pero de forma independiente, explorando así distintas regiones del espacio ya que el operador de mutación aplicado es distinto en cada una de ellas. \\
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{img/perf.png}
+		\caption{Modelo Distribuido}
+	\end{figure}
+	
+	
+	\begin{itemize}
+		\item 	Establecemos un operador de viaje en el que la mejor solución de cada Superficie podrá viajar a otra y seguir con el mismo proceso de crecimiento descrito hasta aquí pero con aplicándole un nuevo operador de mutación.
+		
+		\item 	Se sigue una estructura de intercomunicación en forma de Anillo ya que el sentido de flujo es único.
+		
+		\newpage 
+		
+		\item  En una primera versión implementada la solución pasaba a otra superficie sin copiarse. Sin embargo, los resultados empeoraban ya que la solución era muy buena en el entorno explorado anterior, pero no tanto cuando se aplicaba el operador de mutación de la nueva superficie.
+	 Por ello, el viaje consistirá en una copia de la mejor solución de una superficie a otra para que así nuestra mejor solución pueda seguir explorándose en diferentes superficies.
+		
+		\item 	Este modelo distribuido proporciona una búsqueda más efectiva que la evolución de una gran población en el que todas las soluciones coexistieran.
+	\end{itemize}
+ 
+	
+
+	
+
+
+	
+	\item Las soluciones iniciales están formadas aleatoriamente, por ello, a esta aleatoriedad se han añadido soluciones de calidad obtenidas a partir del algoritmo de \textit{Búsqueda Tabú}. Tendremos un 50\% de soluciones obtenidas de forma aleatoria y otro 50\% de soluciones de la \textit{B. Tabú}. Éste, se introducirá en las siguientes secciones y con él, favorecemos el equilibrio \textit{<<Exploración - Explotación>>}
+\end{enumerate}
+
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{img/lol.png}
+	\caption{Mejoras propuestas}
+\end{figure}
 
 
 \newpage 
 
-\section{Explotación Multi-Entorno}
+\section{<<Exploración-Explotación>> Multi-Entorno}
+
+Al tener tantas superficies caracterizadas por tener mutaciones distintas, me ha parecido adecuado llamar a esta propuesta \textit{<<Explotación-Explotación>> Multi-Entorno}.
+
+El pseudocódigo asociado es el que se muestra a continuación y que explicaremos brevemente:
+
+\begin{itemize}
+	\item Primeramente, creamos las diferentes superficies \textit{Botella de Klein, Plano proyectivo, Cinta de Möbius y Toro llano}. El constructor de la clase se encargará de asignar mutaciones diferentes a cada una de ellas.
+	\item En segundo lugar, las distintas soluciones que habitan en cada superficie se crearán de forma aleatoria llamando a la función \textbf{SolucionAleatoria}.
+	\item A continuación, se lleva a cabo el bucle principal en el que cada solución se mueve libremente por la superficie, coge comida (\textit{nutrirse}) y si la solución crece hasta $\frac{n}{2}$ de su tamaño original es capaz de mudar la piel y dar lugar a nuevas soluciones.
+	\item Por último, dadas dos superficies, la mejor solución de una de ellas viajará a otra (se copiará), pasando así a modificar el operador de mutación que se le aplica (modelo distribuido-isla)
+\end{itemize}
 
 
 
@@ -221,15 +363,15 @@ Todos los algoritmos implementados hacen uso de la misma función objetivo, la c
 			
 			
 			\Begin{
-				$Superficies \leftarrow $ \{\textit{Botella de Klein, Plano proyectivo,} \hspace*{2.4cm}  \textit{Toro llano} \} \;
+				$Superficies \leftarrow $ \{\textit{Botella de Klein, Plano proyectivo,} \hspace*{2.4cm}  \textit{Cinta de Möbius, Toro llano} \} \;
 				
 				\hfill \break
-				\For{$s \in Superficies$}{
-					$s \leftarrow$ \textbf{SolucionInicial(n,m)} \;
+				\For{$s \in Superficies[i]$, $i = 1,...,|Superficies|$}{
+					$s \leftarrow$ \textbf{SolucionAleatoria(n,m)} \;
 					
 				}
 				\While{$eval < n\_eval$}{
-					\For{$s \in Superficies$}{
+					\For{$s \in Superficies[i]$, $i = 1,...,|Superficies|$}{
 						$movimiento$ \;
 						%$evaluarPoblacion$ \;
 						$nutrirse$ \;
@@ -237,7 +379,7 @@ Todos los algoritmos implementados hacen uso de la misma función objetivo, la c
 					}
 				
 					\If{\textit{se dan las condiciones para viajar}}{
-						\For{$s, s' \in Superficies$}{
+						\For{$s, s' = Superficies[i], Superficies[i+1]$}{
 							%\textit{aplicar\_BL a los} $\frac{n}{2}$ \textit{peores de la población de s} \;
 							\textit{s viaja a s'}\;
 						}	
@@ -259,14 +401,14 @@ Todos los algoritmos implementados hacen uso de la misma función objetivo, la c
 
 
 \newpage 
-\section{Hibridación con Búsqueda Local}
+\section{Búsqueda Local}
 \hspace{1.5cm}El algoritmo de \textit{Búsqueda Local} usado para nuestro algoritmo se corresponde con el implementado en la primera práctica, por ello, conviene recordar como funciona: 
 
 \begin{itemize}
 	
 	
 	
-	\item Se ha implementado una función de intercambio, Int(sel,i,j). El parámetro \texttt{i} indica el índice del elemento que se eliminará de la solución y el j por cual se sustituirá. Por tanto, las opciones para \texttt{i} serán \texttt{m} (los m elementos seleccionados) y las opciones para \texttt{j} serán \texttt{n-m} (los elementos disponibles en \textit{no seleccionados}), por tanto, el entorno estará formado por \texttt{m$\cdot$(n-m)} elementos.
+	\item Función de intercambio, Int(sel,i,j). El parámetro \texttt{i} indica el índice del elemento que se eliminará de la solución y el j por cual se sustituirá. Por tanto, las opciones para \texttt{i} serán \texttt{m} (los m elementos seleccionados) y las opciones para \texttt{j} serán \texttt{n-m} (los elementos disponibles en \textit{no seleccionados}), por tanto, el entorno estará formado por \texttt{m$\cdot$(n-m)} elementos.
 	
 	
 	
@@ -333,6 +475,77 @@ Todos los algoritmos implementados hacen uso de la misma función objetivo, la c
 	
 \end{itemize}
 
+\newpage 
+\subsection{Hibridación de nuestro problema con Búsqueda Local}
+Ahora bien, se explicará la forma de hibridación escogida según los resultados obtenidos en los algoritmos meméticos de la práctica 2.
+En estos, había que programar varias versiones, variando entre aplicar Búsqueda Local a toda la población o una parte de ella.
+
+Adicionalmente, se realizó otra versión explorando los $\frac{n}{2}$ peores cromosomas de la población obteniendo incluso mejores resultados que explorar toda la población o una mejor parte de ella.
+
+
+Por esto, se han realizado pruebas aplicando BL sobre toda la población, mejores soluciones y peores soluciones, obteniendo también mejores resultados aplicando la hibridación sobre los $\frac{n}{2}$ peores soluciones.
+
+El pseudocódigo anterior no se ve modificado a excepción de la siguiente parte:
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.75\linewidth}
+		
+		\begin{algorithm}[H] 
+			\caption{Hibridación }
+			\SetAlgoLined
+			
+			\KwData{\textbf{MundoSuperficie}}
+			
+			
+			\Begin{
+						\break \hfill
+					
+					\hspace{3cm}\textbf{. . .}
+					
+					
+					\break 
+				\If{\textit{se dan las condiciones para viajar}}{
+					\For{$s, s' = Superficies[i], Superficies[i+1]$}{
+						\textit{aplicar\_BL a los} $\frac{n}{2}$ \textit{peores de la población de s} \;
+						\textit{s viaja a s'}\;
+					}	
+				}
+				
+			}
+		\end{algorithm}
+	\end{minipage}
+\end{figure}
+
+
+
+
+Parados en este punto, nos preguntamos: ¿qué ventajas nos ofrece aplicar \textit{BL} sobre la peor parte de la población?
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{img/def.png}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -342,25 +555,26 @@ Todos los algoritmos implementados hacen uso de la misma función objetivo, la c
 \newpage
 \section{Búsqueda Tabú}
 
-La Búsqueda Tabú es una metaheurística que utiliza un procedimiento de búsqueda heurística local para explorar el espacio de la solución que pertenece a un óptimo local. Uno de los principales características de este método es el uso de memoria adaptativa, que hace que el comportamiento de búsqueda sea más flexible.
-
-Usaremos dos listas:
+La \textit{Búsqueda Tabú} es una metaheurística que utiliza un procedimiento de búsqueda heurística local para explorar el espacio de la solución que pertenece a un óptimo local. Uno de los principales características de este método es el uso de memoria adaptativa, que hace que el comportamiento de búsqueda sea más flexible.Se usarán dos listas:
 \begin{itemize}
-	\item \texttt{freq}: se almacena el número de veces que el elemento $s_i$ ha sido seleccionado en construcciones previas donde $max\_freq$ representa el máximo valor de $freq[i]$ $\forall i$, $i \in {0,...,n}$
+	\item \texttt{freq}: Almacena el número de veces que el elemento $s_i$ ha sido seleccionado en construcciones previas donde $max\_freq$ representa el máximo valor de $freq[i]$ $\forall i \in {0,...,n}$
 	
 	\item \texttt{quality}: En esta lista se almacena la media de las soluciones previas en las que el elemento $s_i$ ha sido seleccionado. Por otro lado, $max\_q$ hace referencia al máximo valor de $quality[i]$ $\forall i$, $i \in {0,...,n}$
 \end{itemize}
 
-Then, we modify the evaluation of the attractiveness of each non-
-selected element in the current construction according to these quantities to favor the selection of
-elements with low frequency and high quality values.
+El objetivo es el de usar estar dos listas para formar la solución tomando los elementos más atractivos del total de disponibles: 
+\begin{itemize}
+	\item \textit{S}: Elementos totales, \textit{sel}: seleccionados, \textit{S-sel}: Elementos disponibles pero no seleccionados
+	
+	\item $s\_center$: devuelve el elemento que se corresponde con el centro de gravedad del conjunto pasado por argumento y $\beta$ y $\delta$ sirven para incidir en el peso de los valores explicados anteriormente.
+\end{itemize}
+Para ello, en cada iteración se modificará la construcción de la solución evaluando la atractividad de cada elemento de \textit{S-sel}. Esto se llevará a cabo dependiendo de los valores que tomen las listas anteriores, favoreciendo los elementos con bajas frecuencias y alta calidad. 
 
-
-Mostramos a continuación el pseudocódigo asociado a la función principal de nuestro algoritmo donde S representa el número total de índices, Sel los índices seleccionados y S-Sel los no seleccionados.
+Mostramos a continuación el pseudocódigo asociado a la función principal del algoritmo:
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{.95\linewidth}
+	\begin{minipage}{.895\linewidth}
 		
 		
 		
@@ -374,7 +588,7 @@ Mostramos a continuación el pseudocódigo asociado a la función principal de n
 			\Begin{
 				
 				
-				$freq[i] = quality[i] $ $\forall s_i \in S$ \;
+				$freq[i] = quality[i] = 0 $ $\forall s_i \in S$ \;
 				
 				
 				\For{$eval < n\_eval$}{
@@ -391,8 +605,10 @@ Mostramos a continuación el pseudocódigo asociado a la función principal de n
 						$s_c \leftarrow s\_center(sel)$\;
 					}
 					$z \leftarrow Coste$$Solucion(sel)$ \;
-					$quality[i] \leftarrow \frac{quality[i](freq[i]-1)+z}{freq[i]}$ $\forall s_i
-					\in sel$ \;
+					
+					\For{$s_i \in sel$}{
+							$quality[i] \leftarrow \frac{quality[i](freq[i]-1)+z}{freq[i]}$ \;
+					}
 				}
 				
 			}
@@ -417,17 +633,6 @@ Mostramos a continuación el pseudocódigo asociado a la función principal de n
 \section{Resultados Obtenidos}
 
 
-
-
-
-
-
-
-
-
-
-
-
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 % \usepackage{graphicx}
@@ -446,105 +651,114 @@ Mostramos a continuación el pseudocódigo asociado a la función principal de n
 				>{\columncolor[HTML]{FFFFFF}}c 
 				>{\columncolor[HTML]{FFFFFF}}c @{}}
 			\toprule
-			{\color[HTML]{333333} \textbf{Instancia}}     & {\color[HTML]{333333} \textbf{Mejor Coste}} & {\color[HTML]{333333} \textbf{ES}} & {\color[HTML]{333333} \textbf{Desv}} & {\color[HTML]{333333} \textbf{Time}} & {\color[HTML]{333333} \textbf{BMB}} & {\color[HTML]{333333} \textbf{Desv}} & {\color[HTML]{333333} \textbf{Time}} \\ \midrule
-			{\color[HTML]{333333} GKD-c\_11\_n500\_m50}   & {\color[HTML]{333333} 19587,13}             & {\color[HTML]{333333} 19581,2}     & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19586}        & {\color[HTML]{333333} 0,01}          & {\color[HTML]{333333} 0,03}          \\
-			{\color[HTML]{333333} GKD-c\_12\_n500\_m50}   & {\color[HTML]{333333} 19360,24}             & {\color[HTML]{333333} 19357}       & {\color[HTML]{333333} 0,02}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 19360,2}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,05}          \\
-			{\color[HTML]{333333} GKD-c\_13\_n500\_m50}   & {\color[HTML]{333333} 19366,70}             & {\color[HTML]{333333} 19366,7}     & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19366,7}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} GKD-c\_14\_n500\_m50}   & {\color[HTML]{333333} 19458,56}             & {\color[HTML]{333333} 19453,1}     & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 19458,6}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} GKD-c\_15\_n500\_m50}   & {\color[HTML]{333333} 19422,15}             & {\color[HTML]{333333} 19418,6}     & {\color[HTML]{333333} 0,02}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19421,6}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          \\
-			{\color[HTML]{333333} GKD-c\_16\_n500\_m50}   & {\color[HTML]{333333} 19680,21}             & {\color[HTML]{333333} 19665,2}     & {\color[HTML]{333333} 0,08}          & {\color[HTML]{333333} 0,02}          & {\color[HTML]{333333} 19680,2}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} GKD-c\_17\_n500\_m50}   & {\color[HTML]{333333} 19331,39}             & {\color[HTML]{333333} 19327,3}     & {\color[HTML]{333333} 0,02}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19331,4}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          \\
-			{\color[HTML]{333333} GKD-c\_18\_n500\_m50}   & {\color[HTML]{333333} 19461,39}             & {\color[HTML]{333333} 19459,8}     & {\color[HTML]{333333} 0,01}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19461,4}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          \\
-			{\color[HTML]{333333} GKD-c\_19\_n500\_m50}   & {\color[HTML]{333333} 19477,39}             & {\color[HTML]{333333} 19471,6}     & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 19477,3}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} GKD-c\_20\_n500\_m50}   & {\color[HTML]{333333} 19604,84}             & {\color[HTML]{333333} 19601,8}     & {\color[HTML]{333333} 0,02}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 19604,8}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_1\_n500\_m50}    & {\color[HTML]{333333} 778030,62}            & {\color[HTML]{333333} 762432}      & {\color[HTML]{333333} 2,00}          & {\color[HTML]{333333} 0,07}          & {\color[HTML]{333333} 768472}       & {\color[HTML]{333333} 1,23}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_2\_n500\_m50}    & {\color[HTML]{333333} 779963,69}            & {\color[HTML]{333333} 764288}      & {\color[HTML]{333333} 2,01}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 771856}       & {\color[HTML]{333333} 1,04}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_3\_n500\_m50}    & {\color[HTML]{333333} 776768,44}            & {\color[HTML]{333333} 763946}      & {\color[HTML]{333333} 1,65}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 767181}       & {\color[HTML]{333333} 1,23}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_4\_n500\_m50}    & {\color[HTML]{333333} 775394,62}            & {\color[HTML]{333333} 766680}      & {\color[HTML]{333333} 1,12}          & {\color[HTML]{333333} 0,06}          & {\color[HTML]{333333} 765863}       & {\color[HTML]{333333} 1,23}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_5\_n500\_m50}    & {\color[HTML]{333333} 775611,06}            & {\color[HTML]{333333} 753849}      & {\color[HTML]{333333} 2,81}          & {\color[HTML]{333333} 0,02}          & {\color[HTML]{333333} 770415}       & {\color[HTML]{333333} 0,67}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_6\_n500\_m50}    & {\color[HTML]{333333} 775153,69}            & {\color[HTML]{333333} 759891}      & {\color[HTML]{333333} 1,97}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 765810}       & {\color[HTML]{333333} 1,21}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_7\_n500\_m50}    & {\color[HTML]{333333} 777232,87}            & {\color[HTML]{333333} 762001}      & {\color[HTML]{333333} 1,96}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 766665}       & {\color[HTML]{333333} 1,36}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_8\_n500\_m50}    & {\color[HTML]{333333} 779168,75}            & {\color[HTML]{333333} 764350}      & {\color[HTML]{333333} 1,90}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 773351}       & {\color[HTML]{333333} 0,75}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-b\_9\_n500\_m50}    & {\color[HTML]{333333} 774802,19}            & {\color[HTML]{333333} 756551}      & {\color[HTML]{333333} 2,36}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 766528}       & {\color[HTML]{333333} 1,07}          & {\color[HTML]{333333} 0,03}          \\
-			{\color[HTML]{333333} MDG-b\_10\_n500\_m50}   & {\color[HTML]{333333} 774961,31}            & {\color[HTML]{333333} 759213}      & {\color[HTML]{333333} 2,03}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 771090}       & {\color[HTML]{333333} 0,50}          & {\color[HTML]{333333} 0,04}          \\
-			{\color[HTML]{333333} MDG-a\_31\_n2000\_m200} & {\color[HTML]{333333} 114139}               & {\color[HTML]{333333} 112544}      & {\color[HTML]{333333} 1,40}          & {\color[HTML]{333333} 0,41}          & {\color[HTML]{333333} 113028}       & {\color[HTML]{333333} 0,97}          & {\color[HTML]{333333} 0,67}          \\
-			{\color[HTML]{333333} MDG-a\_32\_n2000\_m200} & {\color[HTML]{333333} 114092}               & {\color[HTML]{333333} 112382}      & {\color[HTML]{333333} 1,50}          & {\color[HTML]{333333} 0,50}          & {\color[HTML]{333333} 112651}       & {\color[HTML]{333333} 1,26}          & {\color[HTML]{333333} 0,65}          \\
-			{\color[HTML]{333333} MDG-a\_33\_n2000\_m200} & {\color[HTML]{333333} 114124}               & {\color[HTML]{333333} 112426}      & {\color[HTML]{333333} 1,49}          & {\color[HTML]{333333} 0,49}          & {\color[HTML]{333333} 112944}       & {\color[HTML]{333333} 1,03}          & {\color[HTML]{333333} 0,65}          \\
-			{\color[HTML]{333333} MDG-a\_34\_n2000\_m200} & {\color[HTML]{333333} 114203}               & {\color[HTML]{333333} 112573}      & {\color[HTML]{333333} 1,43}          & {\color[HTML]{333333} 0,43}          & {\color[HTML]{333333} 112835}       & {\color[HTML]{333333} 1,20}          & {\color[HTML]{333333} 0,63}          \\
-			{\color[HTML]{333333} MDG-a\_35\_n2000\_m200} & {\color[HTML]{333333} 114180}               & {\color[HTML]{333333} 112820}      & {\color[HTML]{333333} 1,19}          & {\color[HTML]{333333} 0,44}          & {\color[HTML]{333333} 112944}       & {\color[HTML]{333333} 1,08}          & {\color[HTML]{333333} 0,64}          \\
-			{\color[HTML]{333333} MDG-a\_36\_n2000\_m200} & {\color[HTML]{333333} 114252}               & {\color[HTML]{333333} 112386}      & {\color[HTML]{333333} 1,63}          & {\color[HTML]{333333} 0,47}          & {\color[HTML]{333333} 112987}       & {\color[HTML]{333333} 1,11}          & {\color[HTML]{333333} 0,64}          \\
-			{\color[HTML]{333333} MDG-a\_37\_n2000\_m200} & {\color[HTML]{333333} 114213}               & {\color[HTML]{333333} 112244}      & {\color[HTML]{333333} 1,72}          & {\color[HTML]{333333} 0,43}          & {\color[HTML]{333333} 112874}       & {\color[HTML]{333333} 1,17}          & {\color[HTML]{333333} 0,65}          \\
-			{\color[HTML]{333333} MDG-a\_38\_n2000\_m200} & {\color[HTML]{333333} 114378}               & {\color[HTML]{333333} 112921}      & {\color[HTML]{333333} 1,27}          & {\color[HTML]{333333} 0,40}          & {\color[HTML]{333333} 112991}       & {\color[HTML]{333333} 1,21}          & {\color[HTML]{333333} 0,65}          \\
-			{\color[HTML]{333333} MDG-a\_39\_n2000\_m200} & {\color[HTML]{333333} 114201}               & {\color[HTML]{333333} 112209}      & {\color[HTML]{333333} 1,74}          & {\color[HTML]{333333} 0,41}          & {\color[HTML]{333333} 112908}       & {\color[HTML]{333333} 1,13}          & {\color[HTML]{333333} 0,64}          \\
-			{\color[HTML]{333333} MDG-a\_40\_n2000\_m200} & {\color[HTML]{333333} 114191}               & {\color[HTML]{333333} 112819}      & {\color[HTML]{333333} 1,20}          & {\color[HTML]{333333} 0,40}          & {\color[HTML]{333333} 112834}       & {\color[HTML]{333333} 1,19}          & {\color[HTML]{333333} 0,65}          \\ \bottomrule
+			{\color[HTML]{000000} \textbf{Instancia}}     & {\color[HTML]{000000} \textbf{\begin{tabular}[c]{@{}c@{}}Mejor \\ Coste\end{tabular}}} & {\color[HTML]{000000} \textbf{Superficies}} & {\color[HTML]{000000} \textbf{Desv}} & \textbf{\begin{tabular}[c]{@{}c@{}}Superf.\\ + BL\end{tabular}} & \textbf{Desv}               & \textbf{\begin{tabular}[c]{@{}c@{}}Superficies\\ BTabú+BL\end{tabular}} & \textbf{Desv}               \\ \midrule
+			{\color[HTML]{000000} GKD-c\_11\_n500\_m50}   & {\color[HTML]{000000} 19587,13}                                                        & {\color[HTML]{000000} 19567,2}              & {\color[HTML]{000000} 0,10}          & {\color[HTML]{000000} 19585,7}                                  & {\color[HTML]{000000} 0,01} & {\color[HTML]{000000} 19585,80}                                         & {\color[HTML]{000000} 0,01} \\
+			{\color[HTML]{000000} GKD-c\_12\_n500\_m50}   & {\color[HTML]{000000} 19360,24}                                                        & {\color[HTML]{000000} 19333,9}              & {\color[HTML]{000000} 0,14}          & {\color[HTML]{000000} 19360,2}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19359,70}                                         & {\color[HTML]{000000} 0,00} \\
+			{\color[HTML]{000000} GKD-c\_13\_n500\_m50}   & {\color[HTML]{000000} 19366,7}                                                         & {\color[HTML]{000000} 19327,8}              & {\color[HTML]{000000} 0,20}          & {\color[HTML]{000000} 19366,7}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19357,80}                                         & {\color[HTML]{000000} 0,05} \\
+			{\color[HTML]{000000} GKD-c\_14\_n500\_m50}   & {\color[HTML]{000000} 19458,56}                                                        & {\color[HTML]{000000} 19443,3}              & {\color[HTML]{000000} 0,08}          & {\color[HTML]{000000} 19458,6}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19458,60}                                         & {\color[HTML]{000000} 0,00} \\
+			{\color[HTML]{000000} GKD-c\_15\_n500\_m50}   & {\color[HTML]{000000} 19422,15}                                                        & {\color[HTML]{000000} 19381,5}              & {\color[HTML]{000000} 0,21}          & {\color[HTML]{000000} 19422,1}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19413,10}                                         & {\color[HTML]{000000} 0,05} \\
+			{\color[HTML]{000000} GKD-c\_16\_n500\_m50}   & {\color[HTML]{000000} 19680,21}                                                        & {\color[HTML]{000000} 19638,2}              & {\color[HTML]{000000} 0,21}          & {\color[HTML]{000000} 19680,2}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19670,40}                                         & {\color[HTML]{000000} 0,05} \\
+			{\color[HTML]{000000} GKD-c\_17\_n500\_m50}   & {\color[HTML]{000000} 19331,39}                                                        & {\color[HTML]{000000} 19285,4}              & {\color[HTML]{000000} 0,24}          & {\color[HTML]{000000} 19331,4}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19322,30}                                         & {\color[HTML]{000000} 0,05} \\
+			{\color[HTML]{000000} GKD-c\_18\_n500\_m50}   & {\color[HTML]{000000} 19461,39}                                                        & {\color[HTML]{000000} 19405,3}              & {\color[HTML]{000000} 0,29}          & {\color[HTML]{000000} 19461,4}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19446,70}                                         & {\color[HTML]{000000} 0,08} \\
+			{\color[HTML]{000000} GKD-c\_19\_n500\_m50}   & {\color[HTML]{000000} 19477,39}                                                        & {\color[HTML]{000000} 19435,1}              & {\color[HTML]{000000} 0,22}          & {\color[HTML]{000000} 19477,3}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19473,50}                                         & {\color[HTML]{000000} 0,02} \\
+			{\color[HTML]{000000} GKD-c\_20\_n500\_m50}   & {\color[HTML]{000000} 19604,84}                                                        & {\color[HTML]{000000} 19585,6}              & {\color[HTML]{000000} 0,10}          & {\color[HTML]{000000} 19604,8}                                  & {\color[HTML]{000000} 0,00} & {\color[HTML]{000000} 19601,80}                                         & {\color[HTML]{000000} 0,02} \\
+			{\color[HTML]{000000} MDG-b\_1\_n500\_m50}    & {\color[HTML]{000000} 778030,62}                                                       & {\color[HTML]{000000} 752733}               & {\color[HTML]{000000} 3,25}          & {\color[HTML]{000000} 769661}                                   & {\color[HTML]{000000} 1,08} & {\color[HTML]{000000} 771034}                                           & {\color[HTML]{000000} 0,90} \\
+			{\color[HTML]{000000} MDG-b\_2\_n500\_m50}    & {\color[HTML]{000000} 779963,69}                                                       & {\color[HTML]{000000} 763458}               & {\color[HTML]{000000} 2,12}          & {\color[HTML]{000000} 768273}                                   & {\color[HTML]{000000} 1,50} & {\color[HTML]{000000} 774127}                                           & {\color[HTML]{000000} 0,75} \\
+			{\color[HTML]{000000} MDG-b\_3\_n500\_m50}    & {\color[HTML]{000000} 776768,44}                                                       & {\color[HTML]{000000} 757101}               & {\color[HTML]{000000} 2,53}          & {\color[HTML]{000000} 767690}                                   & {\color[HTML]{000000} 1,17} & {\color[HTML]{000000} 767466}                                           & {\color[HTML]{000000} 1,20} \\
+			{\color[HTML]{000000} MDG-b\_4\_n500\_m50}    & {\color[HTML]{000000} 775394,62}                                                       & {\color[HTML]{000000} 748318}               & {\color[HTML]{000000} 3,49}          & {\color[HTML]{000000} 763243}                                   & {\color[HTML]{000000} 1,57} & {\color[HTML]{000000} 767486}                                           & {\color[HTML]{000000} 1,02} \\
+			{\color[HTML]{000000} MDG-b\_5\_n500\_m50}    & {\color[HTML]{000000} 775611,06}                                                       & {\color[HTML]{000000} 750814}               & {\color[HTML]{000000} 3,20}          & {\color[HTML]{000000} 762755}                                   & {\color[HTML]{000000} 1,66} & {\color[HTML]{000000} 769415}                                           & {\color[HTML]{000000} 0,80} \\
+			{\color[HTML]{000000} MDG-b\_6\_n500\_m50}    & {\color[HTML]{000000} 775153,69}                                                       & {\color[HTML]{000000} 749496}               & {\color[HTML]{000000} 3,31}          & {\color[HTML]{000000} 761953}                                   & {\color[HTML]{000000} 1,70} & {\color[HTML]{000000} 767798}                                           & {\color[HTML]{000000} 0,95} \\
+			{\color[HTML]{000000} MDG-b\_7\_n500\_m50}    & {\color[HTML]{000000} 777232,87}                                                       & {\color[HTML]{000000} 761057}               & {\color[HTML]{000000} 2,08}          & {\color[HTML]{000000} 772318}                                   & {\color[HTML]{000000} 0,63} & {\color[HTML]{000000} 774728}                                           & {\color[HTML]{000000} 0,32} \\
+			{\color[HTML]{000000} MDG-b\_8\_n500\_m50}    & {\color[HTML]{000000} 779168,75}                                                       & {\color[HTML]{000000} 753989}               & {\color[HTML]{000000} 3,23}          & {\color[HTML]{000000} 767355}                                   & {\color[HTML]{000000} 1,52} & {\color[HTML]{000000} 766385}                                           & {\color[HTML]{000000} 1,64} \\
+			{\color[HTML]{000000} MDG-b\_9\_n500\_m50}    & {\color[HTML]{000000} 774802,19}                                                       & {\color[HTML]{000000} 760592}               & {\color[HTML]{000000} 1,83}          & {\color[HTML]{000000} 764790}                                   & {\color[HTML]{000000} 1,29} & {\color[HTML]{000000} 768081}                                           & {\color[HTML]{000000} 0,87} \\
+			{\color[HTML]{000000} MDG-b\_10\_n500\_m50}   & {\color[HTML]{000000} 774961,31}                                                       & {\color[HTML]{000000} 757519}               & {\color[HTML]{000000} 2,25}          & {\color[HTML]{000000} 768620}                                   & {\color[HTML]{000000} 0,82} & {\color[HTML]{000000} 769306}                                           & {\color[HTML]{000000} 0,73} \\
+			{\color[HTML]{000000} MDG-a\_31\_n2000\_m200} & {\color[HTML]{000000} 114139}                                                          & {\color[HTML]{000000} 110748}               & {\color[HTML]{000000} 2,97}          & {\color[HTML]{000000} 112187}                                   & {\color[HTML]{000000} 1,71} & {\color[HTML]{000000} 112624}                                           & {\color[HTML]{000000} 1,33} \\
+			{\color[HTML]{000000} MDG-a\_32\_n2000\_m200} & {\color[HTML]{000000} 114092}                                                          & {\color[HTML]{000000} 111284}               & {\color[HTML]{000000} 2,46}          & {\color[HTML]{000000} 112526}                                   & {\color[HTML]{000000} 1,37} & {\color[HTML]{000000} 112603}                                           & {\color[HTML]{000000} 1,31} \\
+			{\color[HTML]{000000} MDG-a\_33\_n2000\_m200} & {\color[HTML]{000000} 114124}                                                          & {\color[HTML]{000000} 111338}               & {\color[HTML]{000000} 2,44}          & {\color[HTML]{000000} 112490}                                   & {\color[HTML]{000000} 1,43} & {\color[HTML]{000000} 112406}                                           & {\color[HTML]{000000} 1,51} \\
+			{\color[HTML]{000000} MDG-a\_34\_n2000\_m200} & {\color[HTML]{000000} 114203}                                                          & {\color[HTML]{000000} 110854}               & {\color[HTML]{000000} 2,93}          & {\color[HTML]{000000} 112226}                                   & {\color[HTML]{000000} 1,73} & {\color[HTML]{000000} 112955}                                           & {\color[HTML]{000000} 1,09} \\
+			{\color[HTML]{000000} MDG-a\_35\_n2000\_m200} & {\color[HTML]{000000} 114180}                                                          & {\color[HTML]{000000} 110458}               & {\color[HTML]{000000} 3,26}          & {\color[HTML]{000000} 112359}                                   & {\color[HTML]{000000} 1,59} & {\color[HTML]{000000} 112565}                                           & {\color[HTML]{000000} 1,41} \\
+			{\color[HTML]{000000} MDG-a\_36\_n2000\_m200} & {\color[HTML]{000000} 114252}                                                          & {\color[HTML]{000000} 110865}               & {\color[HTML]{000000} 2,96}          & {\color[HTML]{000000} 112363}                                   & {\color[HTML]{000000} 1,65} & {\color[HTML]{000000} 112350}                                           & {\color[HTML]{000000} 1,66} \\
+			{\color[HTML]{000000} MDG-a\_37\_n2000\_m200} & {\color[HTML]{000000} 114213}                                                          & {\color[HTML]{000000} 110675}               & {\color[HTML]{000000} 3,10}          & {\color[HTML]{000000} 112435}                                   & {\color[HTML]{000000} 1,56} & {\color[HTML]{000000} 112793}                                           & {\color[HTML]{000000} 1,24} \\
+			{\color[HTML]{000000} MDG-a\_38\_n2000\_m200} & {\color[HTML]{000000} 114378}                                                          & {\color[HTML]{000000} 111600}               & {\color[HTML]{000000} 2,43}          & {\color[HTML]{000000} 112532}                                   & {\color[HTML]{000000} 1,61} & {\color[HTML]{000000} 112493}                                           & {\color[HTML]{000000} 1,65} \\
+			{\color[HTML]{000000} MDG-a\_39\_n2000\_m200} & {\color[HTML]{000000} 114201}                                                          & {\color[HTML]{000000} 111032}               & {\color[HTML]{000000} 2,77}          & {\color[HTML]{000000} 112431}                                   & {\color[HTML]{000000} 1,55} & {\color[HTML]{000000} 112575}                                           & {\color[HTML]{000000} 1,42} \\
+			{\color[HTML]{000000} MDG-a\_40\_n2000\_m200} & {\color[HTML]{000000} 114191}                                                          & {\color[HTML]{000000} 111558}               & {\color[HTML]{000000} 2,31}          & {\color[HTML]{000000} 112434}                                   & {\color[HTML]{000000} 1,54} & {\color[HTML]{000000} 113053}                                           & {\color[HTML]{000000} 1,00} \\ \bottomrule
 		\end{tabular}%
 	}
-	\caption{Resultados ES/BMB}
-	\label{AMallo2}
+	\caption{Resultados Generales}
+	\label{gen}
 \end{table}
 
 
+\[
+\begin{array}{r|*{4}{r}}{Algoritmo}&Desv&Tiempo\\\hline
 
 
+{}Superficies&1,89&309,14\\
+
+{}Superficies+BL&0,96&39,38\\
+
+{}Superficies+B.Tab$\'u$ + BL&0,77&289,34
 
 
+\end{array}
+\label{glob}
+\]
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{booktabs}
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[H]
+\newpage
+\subsection{Análisis de resultados}
+
+Tomamos 10 instancias pertenecientes al grupo \texttt{GKD} con distancias Euclideas, 10 del grupo \texttt{MDG} con distancias reales y otras 10 del grupo \texttt{MDG} con distancias enteras. Mostramos los resultados obtenidos en 3 gráficas para reflejar mejor las diferencias:
+
+\begin{itemize}
+		\item \texttt{GKD-c}: Conjunto de datos, referentes al grupo de distancias Euclídeas con $n=500$, $m=50$,  en el que mejor resultados se han obtenido. Se llega prácticamente al óptimo en todas las instancias. Bien es cierto que la versión implementada sin \textit{Búsqueda Tabú} y sin $BL$ se encuentra por debajo del resto, que se superponen con el mejor coste obtenido. Podemos afirmar que hay convergencia con las tres versiones en todas las instancias y, por ello, la desviación obtenida es prácticamente nula.
+	
+
+
+	\begin{figure}[H]
 	\centering
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{@{}
-				>{\columncolor[HTML]{FFFFFF}}c 
-				>{\columncolor[HTML]{FFFFFF}}c 
-				>{\columncolor[HTML]{FFFFFF}}c 
-				>{\columncolor[HTML]{FFFFFF}}c 
-				>{\columncolor[HTML]{FFFFFF}}c 
-				>{\columncolor[HTML]{FFFFFF}}c 
-				>{\columncolor[HTML]{FFFFFF}}c 
-				>{\columncolor[HTML]{FFFFFF}}c @{}}
-			\toprule
-			{\color[HTML]{333333} \textbf{Instancia}}     & {\color[HTML]{333333} \textbf{Mejor Coste}} & {\color[HTML]{330001} \textbf{ILS}} & {\color[HTML]{330001} \textbf{Desv}} & {\color[HTML]{330001} \textbf{Time}} & {\color[HTML]{330001} \textbf{ILS-ES}} & {\color[HTML]{330001} \textbf{Desv}} & {\color[HTML]{330001} \textbf{Time}} \\ \midrule
-			{\color[HTML]{330001} GKD-c\_11\_n500\_m50}   & {\color[HTML]{330001} 19587,13}             & {\color[HTML]{333333} 19587,1}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19584,6}         & {\color[HTML]{333333} 0,01}          & {\color[HTML]{333333} 0,31}          \\
-			{\color[HTML]{330001} GKD-c\_12\_n500\_m50}   & {\color[HTML]{330001} 19360,24}             & {\color[HTML]{333333} 19360,2}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 19360,2}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,32}          \\
-			{\color[HTML]{330001} GKD-c\_13\_n500\_m50}   & {\color[HTML]{330001} 19366,70}             & {\color[HTML]{333333} 19366,7}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 19366,7}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,32}          \\
-			{\color[HTML]{330001} GKD-c\_14\_n500\_m50}   & {\color[HTML]{330001} 19458,56}             & {\color[HTML]{333333} 19458,6}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19458,6}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,29}          \\
-			{\color[HTML]{330001} GKD-c\_15\_n500\_m50}   & {\color[HTML]{330001} 19422,15}             & {\color[HTML]{333333} 19421,6}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19422,1}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,33}          \\
-			{\color[HTML]{330001} GKD-c\_16\_n500\_m50}   & {\color[HTML]{330001} 19680,21}             & {\color[HTML]{333333} 19680,2}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19680,2}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,32}          \\
-			{\color[HTML]{330001} GKD-c\_17\_n500\_m50}   & {\color[HTML]{330001} 19331,39}             & {\color[HTML]{333333} 19331,4}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 19329,4}         & {\color[HTML]{333333} 0,01}          & {\color[HTML]{333333} 0,29}          \\
-			{\color[HTML]{330001} GKD-c\_18\_n500\_m50}   & {\color[HTML]{330001} 19461,39}             & {\color[HTML]{333333} 19461,4}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 19461,4}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,35}          \\
-			{\color[HTML]{330001} GKD-c\_19\_n500\_m50}   & {\color[HTML]{330001} 19477,39}             & {\color[HTML]{333333} 19477,3}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 19477,3}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,32}          \\
-			{\color[HTML]{330001} GKD-c\_20\_n500\_m50}   & {\color[HTML]{330001} 19604,84}             & {\color[HTML]{333333} 19604,8}      & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 19604,8}         & {\color[HTML]{333333} 0,00}          & {\color[HTML]{333333} 0,34}          \\
-			{\color[HTML]{330001} MDG-b\_1\_n500\_m50}    & {\color[HTML]{330001} 778030,62}            & {\color[HTML]{333333} 768893}       & {\color[HTML]{333333} 1,17}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 770455}          & {\color[HTML]{333333} 0,97}          & {\color[HTML]{333333} 0,59}          \\
-			{\color[HTML]{330001} MDG-b\_2\_n500\_m50}    & {\color[HTML]{330001} 779963,69}            & {\color[HTML]{333333} 776145}       & {\color[HTML]{333333} 0,49}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 768793}          & {\color[HTML]{333333} 1,43}          & {\color[HTML]{333333} 0,38}          \\
-			{\color[HTML]{330001} MDG-b\_3\_n500\_m50}    & {\color[HTML]{330001} 776768,44}            & {\color[HTML]{333333} 769205}       & {\color[HTML]{333333} 0,97}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 768283}          & {\color[HTML]{333333} 1,09}          & {\color[HTML]{333333} 0,65}          \\
-			{\color[HTML]{330001} MDG-b\_4\_n500\_m50}    & {\color[HTML]{330001} 775394,62}            & {\color[HTML]{333333} 769641}       & {\color[HTML]{333333} 0,74}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 767491}          & {\color[HTML]{333333} 1,02}          & {\color[HTML]{333333} 0,45}          \\
-			{\color[HTML]{330001} MDG-b\_5\_n500\_m50}    & {\color[HTML]{330001} 775611,06}            & {\color[HTML]{333333} 769000}       & {\color[HTML]{333333} 0,85}          & {\color[HTML]{333333} 0,03}          & {\color[HTML]{333333} 765396}          & {\color[HTML]{333333} 1,32}          & {\color[HTML]{333333} 0,38}          \\
-			{\color[HTML]{330001} MDG-b\_6\_n500\_m50}    & {\color[HTML]{330001} 775153,69}            & {\color[HTML]{333333} 759684}       & {\color[HTML]{333333} 2,00}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 768544}          & {\color[HTML]{333333} 0,85}          & {\color[HTML]{333333} 0,47}          \\
-			{\color[HTML]{330001} MDG-b\_7\_n500\_m50}    & {\color[HTML]{330001} 777232,87}            & {\color[HTML]{333333} 765951}       & {\color[HTML]{333333} 1,45}          & {\color[HTML]{333333} 0,06}          & {\color[HTML]{333333} 769574}          & {\color[HTML]{333333} 0,99}          & {\color[HTML]{333333} 0,50}          \\
-			{\color[HTML]{330001} MDG-b\_8\_n500\_m50}    & {\color[HTML]{330001} 779168,75}            & {\color[HTML]{333333} 775018}       & {\color[HTML]{333333} 0,53}          & {\color[HTML]{333333} 0,04}          & {\color[HTML]{333333} 771452}          & {\color[HTML]{333333} 0,99}          & {\color[HTML]{333333} 0,54}          \\
-			{\color[HTML]{330001} MDG-b\_9\_n500\_m50}    & {\color[HTML]{330001} 774802,19}            & {\color[HTML]{333333} 770633}       & {\color[HTML]{333333} 0,54}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 769227}          & {\color[HTML]{333333} 0,72}          & {\color[HTML]{333333} 0,50}          \\
-			{\color[HTML]{330001} MDG-b\_10\_n500\_m50}   & {\color[HTML]{330001} 774961,31}            & {\color[HTML]{333333} 766173}       & {\color[HTML]{333333} 1,13}          & {\color[HTML]{333333} 0,05}          & {\color[HTML]{333333} 769320}          & {\color[HTML]{333333} 0,73}          & {\color[HTML]{333333} 0,45}          \\
-			{\color[HTML]{330001} MDG-a\_31\_n2000\_m200} & {\color[HTML]{330001} 114139}               & {\color[HTML]{333333} 113825}       & {\color[HTML]{333333} 0,28}          & {\color[HTML]{333333} 0,41}          & {\color[HTML]{333333} 113008}          & {\color[HTML]{333333} 0,99}          & {\color[HTML]{333333} 4,21}          \\
-			{\color[HTML]{330001} MDG-a\_32\_n2000\_m200} & {\color[HTML]{330001} 114092}               & {\color[HTML]{333333} 113268}       & {\color[HTML]{333333} 0,72}          & {\color[HTML]{333333} 0,46}          & {\color[HTML]{333333} 112858}          & {\color[HTML]{333333} 1,08}          & {\color[HTML]{333333} 4,23}          \\
-			{\color[HTML]{330001} MDG-a\_33\_n2000\_m200} & {\color[HTML]{330001} 114124}               & {\color[HTML]{333333} 113223}       & {\color[HTML]{333333} 0,79}          & {\color[HTML]{333333} 0,43}          & {\color[HTML]{333333} 113062}          & {\color[HTML]{333333} 0,93}          & {\color[HTML]{333333} 4,70}          \\
-			{\color[HTML]{330001} MDG-a\_34\_n2000\_m200} & {\color[HTML]{330001} 114203}               & {\color[HTML]{333333} 113306}       & {\color[HTML]{333333} 0,79}          & {\color[HTML]{333333} 0,38}          & {\color[HTML]{333333} 112887}          & {\color[HTML]{333333} 1,15}          & {\color[HTML]{333333} 4,55}          \\
-			{\color[HTML]{330001} MDG-a\_35\_n2000\_m200} & {\color[HTML]{330001} 114180}               & {\color[HTML]{333333} 113838}       & {\color[HTML]{333333} 0,30}          & {\color[HTML]{333333} 0,37}          & {\color[HTML]{333333} 112966}          & {\color[HTML]{333333} 1,06}          & {\color[HTML]{333333} 4,87}          \\
-			{\color[HTML]{330001} MDG-a\_36\_n2000\_m200} & {\color[HTML]{330001} 114252}               & {\color[HTML]{333333} 113220}       & {\color[HTML]{333333} 0,90}          & {\color[HTML]{333333} 0,39}          & {\color[HTML]{333333} 113002}          & {\color[HTML]{333333} 1,09}          & {\color[HTML]{333333} 4,81}          \\
-			{\color[HTML]{330001} MDG-a\_37\_n2000\_m200} & {\color[HTML]{330001} 114213}               & {\color[HTML]{333333} 113447}       & {\color[HTML]{333333} 0,67}          & {\color[HTML]{333333} 0,38}          & {\color[HTML]{333333} 112946}          & {\color[HTML]{333333} 1,11}          & {\color[HTML]{333333} 4,39}          \\
-			{\color[HTML]{330001} MDG-a\_38\_n2000\_m200} & {\color[HTML]{330001} 114378}               & {\color[HTML]{333333} 113427}       & {\color[HTML]{333333} 0,83}          & {\color[HTML]{333333} 0,37}          & {\color[HTML]{333333} 113016}          & {\color[HTML]{333333} 1,19}          & {\color[HTML]{333333} 4,62}          \\
-			{\color[HTML]{330001} MDG-a\_39\_n2000\_m200} & {\color[HTML]{330001} 114201}               & {\color[HTML]{333333} 113589}       & {\color[HTML]{333333} 0,54}          & {\color[HTML]{333333} 0,38}          & {\color[HTML]{333333} 112761}          & {\color[HTML]{333333} 1,26}          & {\color[HTML]{333333} 4,34}          \\
-			{\color[HTML]{330001} MDG-a\_40\_n2000\_m200} & {\color[HTML]{330001} 114191}               & {\color[HTML]{333333} 113398}       & {\color[HTML]{333333} 0,69}          & {\color[HTML]{333333} 0,39}          & {\color[HTML]{333333} 112959}          & {\color[HTML]{333333} 1,08}          & {\color[HTML]{333333} 4,61}          \\ \bottomrule
-		\end{tabular}%
-	}
-	\caption{Resultados ILS}
-	\label{AMallo}
-\end{table}
+	\includegraphics[scale=0.55]{img/aa.png}
+\end{figure}
 
+\item \texttt{MDG-a}: Conjunto de datos correspondiente al grupo de distancias enteras y tamaño de $n=2000$ y $m=200$. 
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{img/c.png}
+\end{figure}
+
+	Se observa claramente que el perfil rojo referente a la versión original (sin hibridar) se encuentra por debajo de las otras dos implementaciones. Esto no quiere decir que dicho algoritmo sea malo, de hecho, mejora a todos los algoritmos genéticos de la práctica 2. 
+	
+	En relación con las versiones hibridadas (perfil amarillo y verde), vemos que en todas las instancias menos en 3 de ellas, hibridar el algoritmo con $BL$ y \textit{Búsqueda Tabú} mejora en gran medida. Esto era de esperar ya que a la hora de crear las distintas soluciones aleatorias, se han añadido algunas de 'calidad' por lo que no dependemos tanto de la aleatoriedad inicial de las soluciones.
+	
+	
+
+ 	\item \texttt{MDG-b}: Conjunto de datos correspondiente al grupo de distancias reales y tamaño $n=500$ y $m=50$. 
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{img/b.png}
+\end{figure}
+
+
+\end{itemize}
+
+	Destacamos los siguientes aspectos: 
+	\begin{itemize}
+		\item Al igual que ocurre en el grupo de instancias anterior, ambas versiones hibridadas mejoran bastante respecto al algoritmo original debido en cierto modo a las técnicas introducidas para evitar óptimos locales. 
+		
+		\item En relación con las versiones hibridadas, el claro ganador vuelve a ser la versión de \textit{Búsqueda Tabú + BL}
+	\end{itemize}
+
+ 
+ 
+ 
+ 
+
+\newpage
+
+
+\subsection{Resultados de todos los algoritmos estudiados }
+
+Mostramos a continuación un tabla a modo de resumen general de todos los algoritmos programados en la asignatura, separándolos en práctica 1, 2, 3 y proyecto final de teoría:
 
 
 
@@ -552,9 +766,26 @@ Mostramos a continuación el pseudocódigo asociado a la función principal de n
 \begin{array}{r|*{4}{r}}{Algoritmo}&Desv&Tiempo\\\hline
 
 
-{}Greedy&1,36&0,46\\
+{}Greedy&1,37&0,46\\
 
 {}BL&1,07&0.49\\
+\hline 
+
+{}AGG-posici$\'o$n&2,34&205,13\\
+
+{}AGG-uniforme&2,53&190,37\\
+
+{}AGE-posici$\'o$n&2,07&109,06\\
+
+{}AGE-uniforme&1,42&315,41\\
+
+{}AM-(10,1.0)&0,74&8,05\\
+
+{}AM-(10,0.1)&0,89&65,92\\
+
+{}AM-(10,1.0mej)&0,74&59,24\\
+
+\hline 
 
 {}ES&1,15&0,17\\
 
@@ -562,115 +793,114 @@ Mostramos a continuación el pseudocódigo asociado a la función principal de n
 
 {}ILS&0,55&0,16\\
 
-{}ILS\text{-}ES&0,70&1,78
+{}ILS\text{-}ES&0,70&1,78 \\
+
+\hline 
+
+{}Superficies&1,89&309,14\\
+
+{}Superficies+BL&0,96&39,38\\
+
+{}Superficies+B.Tab$\'u$ + BL&0,77&289,34
+
 \end{array}
 \label{glob}
 \]
 
-
-\newpage
-\section{Análisis de Resultados}
-
-\begin{itemize}
-
-\item Observando la tabla de resultados globales \ref{glob} anterior, el algoritmo \textit{Greedy} es con el que peor resultados se obtienen. El resto de algoritmos considerados tienen una desviación que se encuentra en un rango de valores muy óptimo y ajustado.
-
-\item Por otro lado, todos los algoritmos son muy eficientes, con un tiempo de ejecución de media por debajo de 1 segundo, a excepción de \textit{ILS-ES} que casi dobla este valor.
-
-
-\item Dejando el \textit{Greedy} de lado, obtenemos dos grupos de algoritmos, los que están basados en trayectorias simples (\textit{BL y ES}) y los que están basados en trayectorias múltiples (\textit{BMB, ILS e ILS-ES}), caracterizados por ejecutar las técnicas de trayectorias simples varias veces.
-
-Teniendo en cuenta este punto, los resultados obtenidos cuadran con el razonamiento teórico, ya que \textit{BMB, ILS e ILS-ES} reducen en torno al 40\% la desviación obtenida de las técnicas basadas en trayectorias simples. 
-\end{itemize}
-
-
-
-
-
-
-
-
-Recordemos los casos seleccionados para la ejecución de los algoritmos:
-Mostramos los resultados obtenidos en gráficas diferentes según el grupo al que pertenezca cada instancia para reflejar mejor las diferencias:
-
+Como podemos comprobar, los resultados obtenidos en nuestros algoritmos de la entrega final  de teoría son bastante prometedores. Si se tuviera que destacar un algoritmo en especial, sería la \textit{Búsqueda Local} y todas sus versiones hibridadas.
 
 
 \begin{itemize}
-	\item \texttt{GKD-c}: Conjunto de datos, referentes al grupo de distancias Euclideas con $n=500$, $m=50$,  en el que mejor resultados se han obtenido, tanto los algoritmos basados en técnicas de trayectorias simples como múltiples llegan al mejor coste.  Hay convergencia con todos algoritmos en todas las instancias, de hecho, se aprecia que todas las líneas están superpuestas, obteniendo prácticamente una desviación nula.
+	\item En comparación con los algoritmos genéticos, vemos que la versión \textit{Superficies} (sin hibridar) mejora a todos los algoritmos genéticos a excepción del Algoritmo Genético Estacionario ($AGE$) en su versión uniforme.
 	
+	\item Sin embargo, en la versión hibridada con \textit{Búsqueda Local}, vemos que tanto los algoritmos meméticos como los programados en esta entrega muestran unas desviación muy parecida.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.62]{img/gkdc.png}
-	\end{figure}
-	
-	
-	\newpage 
-	
-	\item \texttt{MDG-a}: Conjunto de datos correspondiente al grupo de distancias enteras y tamaño de $n=2000$ y $m=200$. En todas las instancias los costes obtenidos por los algoritmos basados en técnicas de trayectorias múltiples superan a los que están basados en técnicas de trayectorias simples. 
-	Se aprecia como la línea de \textit{ILS} se encuentra por encima del resto, mientras la roja y amarilla, pertenecientes a los algoritmos \textit{BL y ES}, se encuentran por debajo.
-	
-	
-
-	
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.62]{img/mdga.png}
-	\end{figure}
-	
-	
-	
-	\item \texttt{MDG-b}: Conjunto de datos correspondiente al grupo de distancias reales y tamaño $n=500$ y $m=50$. 
-	Al igual que en el grupo de instancias anterior, los algoritmos basados en trayectorias simples (\textit{BL} y \textit{ES}) se encuentran por debajo del resto.
-	
-	Si observamos el trazado por cada uno de los algoritmos, observamos que se presentan altibajos o fluctuaciones en las mismas instancias. Esto es debido a la presencia de óptimos locales, haciendo costoso que nuestros algoritmos puedan salir de estos. 
-	
-	
-
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.62]{img/mdgb.png}
-	\end{figure}
-	
+	\item Los mejores resultados se han obtenido en la práctica 3, tanto en eficacia como en eficiencia, en concreto \textit{Búsqueda Local Reiterada} ($ILS$), que como bien se comentó se trata de un algoritmo basado en trayectorias múltiples que usa el criterio del mejor como aceptación.
 \end{itemize}
 
-\newpage
+\newpage 
+\section{Análisis de escalado}
 
-Un aspecto diferente en los algoritmos implementados radica en el número de soluciones usadas en el proceso de optimización. \textit{Enfriamiento Simulado} o \textit{Búsqueda Local} utilizan una sola solución en el proceso de búsqueda. \\
+Como bien se ha comentado en el punto anterior, los algoritmos híbridos con $BL$ muestran un comportamiento general y no podemos establecer un claro ganador ya que la diferencia de desviación entre unos algoritmos y otros es  muy baja.
 
+Para todas estas ejecuciones, el criterio de parada era común, alcanzar 100.000 evaluaciones de la función objetivo. Por ello, realizamos una nueva ejecución de \textit{(AM-(10,1.0)), ILS y Superficies+BTabú+BL} pero estableciendo el criterio de parada a 400.000 evaluaciones.
 
-
-Por otro lado, técnicas como \textit{Búsqueda Multiarranque Básica} o \textit{Búsqueda Local Reiterada} optimizan un conjunto de soluciones iniciales creadas de forma aleatoria por lo que se obtienen soluciones de más calidad debido a la ventaja que supone explorar diferentes áreas del espacio de búsqueda.
-
-Debido a la posible presencia de óptimos locales, algoritmos como \textit{Búsqueda Local Reiterada} (\textit{ILS}) presentan un factor de mutación brusco, mejorando en gran medida los resultados obtenidos.
-
+Mostramos una tabla a modo de resumen de los resultados obtenidos (El estudio con todos las ejecuciones de las instancias se puede ver en el archivo \textit{Estudio.ods}, situado en la carpeta \textit{resultados}):
 
 
 
 
+\[
+\begin{array}{c|c|c}{Algoritmo}&Desv, 100k \hspace{0.1cm} eval & Desv, 400k \hspace{0.1cm} eval\\\hline
+
+{}AM-(10,1.0)&0,74&0,60\\
+
+{}ILS&0.55&0,54\\
+
+{}Superficies+B.Tab$\'u$ + BL&0.77&0.46
 
 
-\subsection{Desviación}
-Por último, reflejados en el siguiente gráfico en red, mostramos la desviación obtenida de todas las instancia tras la ejecución de cada algoritmo. Como bien sabemos, cuanto menor sea la desviación, mejor será el coste obtenido con nuestro algoritmo. Por tanto, el algoritmo que presente un mayor área bajo su trazado, será peor.
+\end{array}
+\label{escalado}
+\]
 
 
 
 
-\begin{figure}[H]
+\hfill \break
+
+Observando la tabla anterior y, para nuestro asombro, vemos que tras 400.000 evaluaciones, el  algoritmo \textit{Superficies} es el que mejores resultados obtiene, superando incluso al \textit{Algoritmo Memético} y  \textit{Búsqueda Local Reiterada} de las prácticas 2 y 3, respectivamente.
+
+	\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{img/desv.png}
-	
+	\includegraphics[scale=0.33]{img/final.png}
 \end{figure}
 
 
 
-En resumen, podemos considerar que tanto la eficacia como la eficiencia de todos nuestros algoritmos es muy buena por tener una desviación y un tiempo muy pequeños.
-
-Con los que mejor resultados se obtienen son con los algoritmos basados en técnicas de trayectorias múltiples, especialmente el algoritmo de \textit{Búsqueda Local Reiterada} (\textit{ILS}) ya que en media obtiene soluciones más cercanas al mejor valor conocido.
 
 
 
+
+\newpage 
+\section{Futuros escenarios}
+
+El conjunto inicial de superficies en nuestra implementación es de únicamente 4 y, a pesar de ello, los resultados obtenidos son bastante prometedores.
+
+Se podría tomar un mayor número de superficies combinadas con el modelo distribuido en forma de isla, así, el número de entornos explorados serían aún mayor. Éstas superficies podrían además formarse a partir de sumas conexas (uniones) de las superficies anteriores. Destacamos lo siguiente:
+
+\begin{itemize}
+	\item La suma conexa de k-planos proyectivos será una superficie orientable mientras que la suma conexa de k-toros será orientable.
+	
+	En la siguiente imagen podemos ver la representación de un 2-toro que podemos perfectamente utilizar como superficie para nuestra propuesta.
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{img/2t.png}
+	\end{figure}
+
+	Sin embargo... ¿Cómo podemos llevar la representación de este 2-toro de forma rápida y sencilla a un tablero? 
+
+
+	\item Para contestar a la pregunta anterior,  se ha realizado un programa adicional para simular el movimiento de una solución en un 2-toro y así ver cómo se comportarían las identificaciones en esta supercicie. Éste código se ha entregado junto al proyecto en 2 versiones, una en terminal y otra con interfaz gráfica, en el directorio \textit{snake/}
+	
+	
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.45]{img/yesh.png}
+		\caption{snake/snake2-toro.gif}
+	\end{figure}
+	
+
+\end{itemize}
+
+
+
+
+A simple vista, podemos pensar que ambas figuras no son iguales ya que no se conservan las distancias (el recorrido por los arcos grises y rojos de la figura superior son distintos, mientras que esta distancia en la figura inferior no se tiene en cuenta), es decir, ambas figuras no tienen las misma geometría.
+Sin embargo, topológicamente podemos afirmar que son equivalentes ya que mediante deformaciones podemos obtener una a partir de la otra.
+
+Observando la última figura, vemos que en total tenemos 6 identificaciones luego nuestra solución está caracterizada por tener un entorno en el que 6 caracteres se mutarán, pero... ¿Tener un entorno con mayor número de mutaciones supondría unos mejores resultados?
 
 
 
@@ -688,7 +918,7 @@ Con los que mejor resultados se obtienen son con los algoritmos basados en técn
 		
 		-\href{https://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Metaheuristicas/Sem04-Problemas-Trayectorias-MHs-19-20.pdf}{Seminario 4}\\
 	
-	-\href{https://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Metaheuristicas/Guion\%20P3a\%20Trayectorias\%20MDP\%20MHs\%202019-20.pdf}{Guión de prácticas}
+	-\href{https://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Metaheuristicas/MHs\%20-\%20Pr\%C3\%A1ctica-4-Para-evaluaci\%C3\%B3n-teoria-Junio-2020.pdf}{Práctica para evaluar teoría}
 
 
 
