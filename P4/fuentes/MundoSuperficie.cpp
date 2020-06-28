@@ -803,10 +803,10 @@ void MundoSuperficie(int m, vector<vector<double> > dist){
       coste_mejor=superficies[i].values[superficies[i].best];
 
       superficies[i].movimiento();
-      superficies[i].evaluarPoblacion(eval);
+      superficies[i].evaluarPoblacion(eval); //línea *anterior*
       /*
       Para ejecutar con la fact. de la función objetivo debe comentar la
-      línea 782 y descomentar estas:
+      línea anterior y descomentar estas:
 
       superficies[i].mejor_indice();
       eval+=2*superficies[i]. //una por la antigua y otra por la nueva contrib.
